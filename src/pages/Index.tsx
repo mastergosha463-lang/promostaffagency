@@ -32,6 +32,20 @@ const services = [
     price: "от 600 ₽/час"
   },
   {
+    title: "Кейтеринг",
+    description: "Официанты, бармены и персонал для обслуживания",
+    icon: UtensilsCrossed,
+    to: "/staff/catering",
+    price: "от 800 ₽/час"
+  },
+  {
+    title: "Декораторы",
+    description: "Оформление площадок и создание атмосферы",
+    icon: Palette,
+    to: "/staff/decorators",
+    price: "от 1000 ₽/час"
+  },
+  {
     title: "Хостес",
     description: "Встреча гостей, регистрация и сопровождение",
     icon: Sparkles,
@@ -44,20 +58,6 @@ const services = [
     icon: Wrench,
     to: "/staff/installers",
     price: "от 1200 ₽/час"
-  },
-  {
-    title: "Декораторы",
-    description: "Оформление площадок и создание атмосферы",
-    icon: Palette,
-    to: "/staff/decorators",
-    price: "от 1000 ₽/час"
-  },
-  {
-    title: "Кейтеринг",
-    description: "Официанты, бармены и персонал для обслуживания",
-    icon: UtensilsCrossed,
-    to: "/staff/catering",
-    price: "от 800 ₽/час"
   },
   {
     title: "Аниматоры",
