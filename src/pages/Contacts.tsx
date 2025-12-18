@@ -54,7 +54,7 @@ const Contacts = () => {
                       </div>
                       <div>
                         <p className="text-sm text-muted-foreground">Режим работы</p>
-                        <p className="font-semibold text-foreground">Ежедневно, 9:00 — 21:00</p>
+                        <p className="font-semibold text-foreground">24/7</p>
                       </div>
                     </div>
                   </div>
@@ -80,7 +80,6 @@ const Contacts = () => {
                     <input 
                       type="text"
                       className="w-full px-4 py-3 rounded-lg bg-secondary border border-border focus:border-primary focus:outline-none transition-colors text-foreground"
-                      placeholder="Как к вам обращаться?"
                     />
                   </div>
                   
@@ -98,7 +97,6 @@ const Contacts = () => {
                     <input 
                       type="text"
                       className="w-full px-4 py-3 rounded-lg bg-secondary border border-border focus:border-primary focus:outline-none transition-colors text-foreground"
-                      placeholder="Например: корпоратив, выставка"
                     />
                   </div>
                   

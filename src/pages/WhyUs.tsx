@@ -49,7 +49,7 @@ const WhyUs = () => {
               Почему именно <span className="text-primary">мы</span>
             </h1>
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-lg">
-              EVENTWAVE — это команда профессионалов с многолетним опытом в индустрии событий
+              EVENTWAVE — надёжность в каждой детали события
             </p>
           </div>
 
@@ -57,14 +57,16 @@ const WhyUs = () => {
           <div className="max-w-4xl mx-auto mb-20">
             <div className="p-8 rounded-2xl bg-card border border-border">
               <p className="text-lg text-foreground leading-relaxed">
-                Мы занимаемся подбором персонала для организации мероприятий в Москве. 
-                Работаем на мероприятиях самого разного формата — от корпоративов и презентаций 
-                до крупных фестивалей и городских событий.
+                EVENTWAVE родилась из практического опыта и глубокого понимания того, как работают события в Москве. Мы знаем, что организатор мероприятия часто сталкивается с вызовом: где найти надёжный, профессиональный персонал, который придёт вовремя, выполнит работу качественно и поддержит атмосферу события? Именно эту проблему мы решаем.
               </p>
               <p className="text-lg text-foreground leading-relaxed mt-4">
-                За время работы мы обеспечили персоналом более <span className="text-primary font-bold">50 мероприятий</span>, 
-                формировали команды до <span className="text-primary font-bold">40 человек</span>, 
-                умеем быстро адаптироваться под требования заказчика.
+                Наша команда состоит из людей, которые сами работали на событиях и понимают все нюансы этой работы. Мы тщательно отбираем специалистов, проверяем их опыт и надёжность, а затем предлагаем вам только лучших.
+              </p>
+              <p className="text-lg text-foreground leading-relaxed mt-4">
+                Мы не просто подбираем людей — мы создаём команды, которые работают как единый организм. Каждый член нашего персонала знает, что от него ожидается, и готов выложиться на полную.
+              </p>
+              <p className="text-lg text-foreground leading-relaxed mt-4">
+                Мы гордимся тем, что за всё время нашей работы не было ни одного случая, когда персонал подвел организатора. Это не случайность — это результат нашего тщательного отбора и постоянного контроля качества.
               </p>
             </div>
           </div>
@@ -86,18 +88,17 @@ const WhyUs = () => {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
+          <div className="grid grid-cols-3 gap-6 mb-20">
             {[
               { value: "50+", label: "Мероприятий" },
-              { value: "40", label: "Макс. размер команды" },
-              { value: "99%", label: "Доходимость" },
+              { value: "30+", label: "Довольных клиентов" },
               { value: "5+", label: "Лет на рынке" },
             ].map((stat) => (
               <div 
                 key={stat.label} 
                 className="text-center p-6 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 border border-border"
               >
-                <p className="text-4xl md:text-5xl font-heading font-black text-primary">
+                <p className="text-3xl md:text-4xl font-heading font-black text-primary">
                   {stat.value}
                 </p>
                 <p className="text-sm text-muted-foreground mt-2">
@@ -116,7 +117,7 @@ const WhyUs = () => {
               <div className="flex items-center gap-3 p-4 rounded-lg bg-card border border-border">
                 <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
                 <span className="text-foreground">
-                  Организация питания для персонала — <span className="text-primary font-semibold">+50 ₽/час</span> на человека
+                  Организация питания для персонала
                 </span>
               </div>
               <div className="flex items-center gap-3 p-4 rounded-lg bg-card border border-border">
