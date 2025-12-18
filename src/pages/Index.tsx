@@ -11,6 +11,8 @@ import {
   UtensilsCrossed, 
   PartyPopper, 
   ClipboardCheck,
+  Camera,
+  Music,
   CheckCircle2,
   ArrowRight
 } from "lucide-react";
@@ -21,65 +23,68 @@ const services = [
     title: "Хелперы",
     description: "Универсальные помощники для любых задач на мероприятии",
     icon: Users,
-    to: "/staff/helpers",
-    price: "от 600 ₽/час"
+    to: "/staff/helpers"
   },
   {
     title: "Промо-персонал",
     description: "Промоутеры для раздачи материалов и привлечения внимания",
     icon: Megaphone,
-    to: "/staff/promo",
-    price: "от 600 ₽/час"
+    to: "/staff/promo"
   },
   {
     title: "Кейтеринг",
     description: "Официанты, бармены и персонал для обслуживания",
     icon: UtensilsCrossed,
-    to: "/staff/catering",
-    price: "от 800 ₽/час"
+    to: "/staff/catering"
   },
   {
     title: "Декораторы",
     description: "Оформление площадок и создание атмосферы",
     icon: Palette,
-    to: "/staff/decorators",
-    price: "от 1000 ₽/час"
+    to: "/staff/decorators"
   },
   {
     title: "Хостес",
     description: "Встреча гостей, регистрация и сопровождение",
     icon: Sparkles,
-    to: "/staff/hostess",
-    price: "от 1200 ₽/час"
+    to: "/staff/hostess"
   },
   {
     title: "Монтажники",
     description: "Сборка и разборка конструкций, оборудования",
     icon: Wrench,
-    to: "/staff/installers",
-    price: "от 1200 ₽/час"
+    to: "/staff/installers"
   },
   {
     title: "Аниматоры",
     description: "Ведущие, аниматоры и развлекательные программы",
     icon: PartyPopper,
-    to: "/staff/animators",
-    price: "от 1500 ₽/час"
+    to: "/staff/animators"
   },
   {
     title: "Супервайзеры",
     description: "Координация команды и контроль качества",
     icon: ClipboardCheck,
-    to: "/staff/supervisors",
-    price: "от 2000 ₽/час"
+    to: "/staff/supervisors"
+  },
+  {
+    title: "Фотографы",
+    description: "Профессиональная съёмка мероприятий",
+    icon: Camera,
+    to: "/staff/photographers"
+  },
+  {
+    title: "DJ",
+    description: "Музыкальное сопровождение мероприятий",
+    icon: Music,
+    to: "/staff/dj"
   },
 ];
 
 const stats = [
   { value: "50+", label: "Мероприятий" },
-  { value: "40", label: "Человек в команде" },
-  { value: "99%", label: "Довольных клиентов" },
-  { value: "5+", label: "Лет опыта" },
+  { value: "30+", label: "Довольных клиентов" },
+  { value: "5+", label: "Лет на рынке" },
 ];
 
 const Index = () => {
@@ -107,7 +112,7 @@ const Index = () => {
             </h1>
             
             <p className="text-lg md:text-xl text-muted-foreground mt-6 max-w-xl animate-slide-up" style={{ animationDelay: "0.1s" }}>
-              Подбираем опытный и пунктуальный персонал для мероприятий любого формата в Москве — от корпоративов до крупных фестивалей.
+              Работаем со срочными заявками и формируем команду в кратчайшие сроки. Ваше событие не будет ждать — мы тоже.
             </p>
 
             <div className="flex flex-wrap gap-4 mt-8 animate-slide-up" style={{ animationDelay: "0.2s" }}>
@@ -172,11 +177,11 @@ const Index = () => {
               </h2>
               <ul className="space-y-4">
                 {[
-                  "Опытная и пунктуальная команда",
-                  "Быстрая адаптация под требования заказчика",
+                  "Любой формат события",
+                  "Быстрая адаптация",
                   "Команды до 40 человек за 24 часа",
-                  "Работаем с мероприятиями любого формата",
-                  "99% гарантия доходимости персонала"
+                  "Круглосуточная поддержка",
+                  "Пунктуальность гарантирована"
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-3">
                     <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />

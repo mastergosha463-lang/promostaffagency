@@ -1,4 +1,4 @@
-import { MessageCircle, Send } from "lucide-react";
+import { Send } from "lucide-react";
 
 interface ContactIconsProps {
   size?: "sm" | "md" | "lg";
@@ -30,26 +30,13 @@ const ContactIcons = ({ size = "md" }: ContactIconsProps) => {
 
       {/* Telegram */}
       <a
-        href="https://t.me/+79257420436"
+        href="https://t.me/Chernykreig"
         target="_blank"
         rel="noopener noreferrer"
         className={`${iconClass} flex items-center justify-center rounded-full bg-[#0088cc] hover:scale-110 transition-transform`}
         aria-label="Telegram"
       >
         <Send className="w-5 h-5 text-white" />
-      </a>
-
-      {/* VK */}
-      <a
-        href="https://vk.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`${iconClass} flex items-center justify-center rounded-full bg-[#0077FF] hover:scale-110 transition-transform`}
-        aria-label="VKontakte"
-      >
-        <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white">
-          <path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.862-.523-2.049-1.713-1.033-1.003-1.49-1.139-1.744-1.139-.357 0-.461.102-.461.593v1.564c0 .422-.135.677-1.252.677-1.846 0-3.896-1.118-5.339-3.202C4.692 11.026 4 8.687 4 8.203c0-.253.102-.491.593-.491h1.744c.441 0 .61.196.78.661.862 2.491 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.627v3.433c0 .373.17.508.271.508.22 0 .407-.135.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.253.322-.491.763-.491h1.744c.525 0 .643.27.525.627-.22 1.016-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.049.17.488-.084.743-.576.743z"/>
-        </svg>
       </a>
     </div>
   );
