@@ -8,15 +8,12 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Brand */}
           <div className="text-center md:text-left">
-            <Link to="/" className="inline-block mb-4">
-              <span className="font-heading text-2xl font-black tracking-tight">
+            <Link to="/" className="inline-block">
+              <span className="font-heading text-4xl font-black tracking-tight">
                 <span className="text-foreground">EVENT</span>
                 <span className="text-primary">WAVE</span>
               </span>
             </Link>
-            <p className="text-muted-foreground text-lg max-w-md italic">
-              Ваше событие — наша ответственность
-            </p>
           </div>
 
           {/* Contact */}
