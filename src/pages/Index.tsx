@@ -14,7 +14,9 @@ import {
   Camera,
   Music,
   CheckCircle2,
-  ArrowRight
+  ArrowRight,
+  SprayCan,
+  Bike
 } from "lucide-react";
 import heroWave from "@/assets/hero-wave.jpg";
 
@@ -78,6 +80,18 @@ const services = [
     description: "Музыкальное сопровождение мероприятий",
     icon: Music,
     to: "/staff/dj"
+  },
+  {
+    title: "Клининг",
+    description: "Уборка и поддержание чистоты на площадке",
+    icon: SprayCan,
+    to: "/staff/cleaning"
+  },
+  {
+    title: "Курьеры",
+    description: "Оперативная доставка материалов и документов",
+    icon: Bike,
+    to: "/staff/couriers"
   },
 ];
 

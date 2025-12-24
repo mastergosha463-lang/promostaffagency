@@ -2,13 +2,8 @@ import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
-} from "@/components/ui/carousel";
+import { useState, useCallback, useEffect } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 
 // Client logos
 import inditexLogo from "@/assets/clients/inditex.jpg";
@@ -22,6 +17,7 @@ interface ClientLogoProps {
   logo: string;
   url?: string;
   description?: string;
+  isActive?: boolean;
 }
 
 const clients: ClientLogoProps[] = [
@@ -52,28 +48,37 @@ const clients: ClientLogoProps[] = [
   {
     name: "Inditex",
     logo: inditexLogo,
-    description: "Inditex — крупнейший в мире ритейлер одежды, основанный Амансио Ортегой в 1985 году в Испании. Компания владеет такими брендами как Zara, Pull&Bear, Massimo Dutti, Bershka, Stradivarius, Oysho и другими. Inditex известен инновационным подходом к моде и быстрой реакцией на тренды рынка.",
+    description: "Inditex — крупнейший в мире ритейлер одежды, основанный Амансио Ортегой в 1985 году в Испании. Компания владеет такими брендами как Zara, Pull&Bear, Massimo Dutti, Bershka, Stradivarius, Oysho и другими.",
   },
 ];
 
-const ClientLogo = ({ name, logo, url, description }: ClientLogoProps) => {
+const ClientLogo = ({ name, logo, url, isActive = true }: ClientLogoProps) => {
   const content = (
-    <div className="group relative aspect-video bg-card rounded-xl border border-border overflow-hidden transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_30px_hsl(20_90%_55%/0.15)]">
-      <div className="absolute inset-0 bg-gradient-to-br from-background/50 to-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+    <div 
+      className={`group relative aspect-video bg-card rounded-xl border overflow-hidden transition-all duration-500 ${
+        isActive 
+          ? "border-primary/50 shadow-[0_0_30px_hsl(20_90%_55%/0.2)] scale-100 opacity-100" 
+          : "border-border/30 scale-90 opacity-30"
+      }`}
+    >
       <div className="w-full h-full flex items-center justify-center p-8">
         <img
           src={logo}
           alt={`${name} - клиент EVENTWAVE`}
-          className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500"
+          className={`max-w-full max-h-full object-contain transition-all duration-500 ${
+            isActive ? "grayscale-0" : "grayscale"
+          }`}
         />
       </div>
-      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/95 to-transparent p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-        <p className="text-foreground font-medium text-center">{name}</p>
-      </div>
+      {isActive && (
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/95 to-transparent p-4">
+          <p className="text-foreground font-medium text-center">{name}</p>
+        </div>
+      )}
     </div>
   );
 
-  if (url) {
+  if (url && isActive) {
     return (
       <a href={url} target="_blank" rel="noopener noreferrer" className="block">
         {content}
@@ -85,6 +90,34 @@ const ClientLogo = ({ name, logo, url, description }: ClientLogoProps) => {
 };
 
 const Clients = () => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "center",
+    loop: true,
+  });
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
+    return () => {
+      emblaApi.off("select", onSelect);
+    };
+  }, [emblaApi, onSelect]);
+
   return (
     <Layout>
       <section className="py-20 min-h-[60vh]">
@@ -99,24 +132,52 @@ const Clients = () => {
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            <Carousel
-              opts={{
-                align: "center",
-                loop: true,
-              }}
-              className="w-full"
-            >
-              <CarouselContent className="-ml-4">
-                {clients.map((client) => (
-                  <CarouselItem key={client.name} className="pl-4 md:basis-1/2 lg:basis-1/2">
-                    <ClientLogo {...client} />
-                  </CarouselItem>
+          <div className="max-w-5xl mx-auto relative">
+            {/* Fade overlays */}
+            <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+            
+            <div className="overflow-hidden" ref={emblaRef}>
+              <div className="flex">
+                {clients.map((client, index) => (
+                  <div 
+                    key={client.name} 
+                    className="flex-[0_0_80%] md:flex-[0_0_50%] min-w-0 px-4 transition-all duration-500"
+                  >
+                    <ClientLogo {...client} isActive={index === selectedIndex} />
+                  </div>
                 ))}
-              </CarouselContent>
-              <CarouselPrevious className="left-0 md:-left-12" />
-              <CarouselNext className="right-0 md:-right-12" />
-            </Carousel>
+              </div>
+            </div>
+
+            {/* Navigation buttons */}
+            <button
+              onClick={scrollPrev}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-card border border-border flex items-center justify-center hover:bg-primary/10 hover:border-primary/50 transition-all duration-300"
+            >
+              <ChevronLeft className="w-6 h-6 text-foreground" />
+            </button>
+            <button
+              onClick={scrollNext}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-card border border-border flex items-center justify-center hover:bg-primary/10 hover:border-primary/50 transition-all duration-300"
+            >
+              <ChevronRight className="w-6 h-6 text-foreground" />
+            </button>
+
+            {/* Dots indicator */}
+            <div className="flex justify-center gap-2 mt-8">
+              {clients.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => emblaApi?.scrollTo(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === selectedIndex 
+                      ? "w-8 bg-primary" 
+                      : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
 
           <div className="text-center mt-16">
