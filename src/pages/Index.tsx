@@ -95,11 +95,7 @@ const services = [
   },
 ];
 
-const stats = [
-  { value: "Более 100", label: "Мероприятий" },
-  { value: "Более 30", label: "Клиентов" },
-  { value: "5 лет", label: "На рынке" },
-];
+const stats: { value: string; label: string }[] = [];
 
 const Index = () => {
   return (
@@ -143,19 +139,6 @@ const Index = () => {
               </Link>
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 animate-slide-up" style={{ animationDelay: "0.3s" }}>
-              {stats.map((stat) => (
-                <div key={stat.label} className="text-center md:text-left">
-                  <p className="text-3xl md:text-4xl font-heading font-black text-primary">
-                    {stat.value}
-                  </p>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>

@@ -18,6 +18,7 @@ interface ClientLogoProps {
   url?: string;
   description?: string;
   isActive?: boolean;
+  cropBottom?: boolean;
 }
 
 const clients: ClientLogoProps[] = [
@@ -26,6 +27,7 @@ const clients: ClientLogoProps[] = [
     logo: eventousLogo,
     url: "https://eventous.ru",
     description: "Профессиональное event-агентство полного цикла в Москве",
+    cropBottom: true,
   },
   {
     name: "Community Moscow",
@@ -52,7 +54,7 @@ const clients: ClientLogoProps[] = [
   },
 ];
 
-const ClientLogo = ({ name, logo, url, isActive = true }: ClientLogoProps) => {
+const ClientLogo = ({ name, logo, url, isActive = true, cropBottom = false }: ClientLogoProps) => {
   const content = (
     <div 
       className={`group relative aspect-video bg-card rounded-xl border overflow-hidden transition-all duration-500 ${
@@ -61,13 +63,13 @@ const ClientLogo = ({ name, logo, url, isActive = true }: ClientLogoProps) => {
           : "border-border/30 scale-90 opacity-30"
       }`}
     >
-      <div className="w-full h-full flex items-center justify-center p-8">
+      <div className={`w-full h-full flex items-center justify-center p-8 ${cropBottom ? "overflow-hidden" : ""}`}>
         <img
           src={logo}
           alt={`${name} - клиент EVENTWAVE`}
-          className={`max-w-full max-h-full object-contain transition-all duration-500 ${
+          className={`max-w-full object-contain transition-all duration-500 ${
             isActive ? "grayscale-0" : "grayscale"
-          }`}
+          } ${cropBottom ? "max-h-[140%] -mb-12" : "max-h-full"}`}
         />
       </div>
       {isActive && (
