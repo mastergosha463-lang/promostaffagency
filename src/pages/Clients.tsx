@@ -1,7 +1,14 @@
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
 
 // Client logos
 import inditexLogo from "@/assets/clients/inditex.jpg";
@@ -14,6 +21,7 @@ interface ClientLogoProps {
   name: string;
   logo: string;
   url?: string;
+  description?: string;
 }
 
 const clients: ClientLogoProps[] = [
@@ -21,40 +29,45 @@ const clients: ClientLogoProps[] = [
     name: "Eventous",
     logo: eventousLogo,
     url: "https://eventous.ru",
+    description: "Профессиональное event-агентство полного цикла в Москве",
   },
   {
     name: "Community Moscow",
     logo: communityLogo,
     url: "https://communitymoscow.ru",
+    description: "Ресторан с авторской кухней и уникальной атмосферой",
   },
   {
     name: "Community Russia",
     logo: comrushLogo,
     url: "https://www.instagram.com/community.russia",
+    description: "Сеть ресторанов Community в России",
   },
   {
     name: "Flowerbazar",
     logo: flowerbazarLogo,
     url: "https://flowerbazar.ru",
+    description: "Цветочный магазин с доставкой по Москве",
   },
   {
     name: "Inditex",
     logo: inditexLogo,
+    description: "Inditex — крупнейший в мире ритейлер одежды, основанный Амансио Ортегой в 1985 году в Испании. Компания владеет такими брендами как Zara, Pull&Bear, Massimo Dutti, Bershka, Stradivarius, Oysho и другими. Inditex известен инновационным подходом к моде и быстрой реакцией на тренды рынка.",
   },
 ];
 
-const ClientLogo = ({ name, logo, url }: ClientLogoProps) => {
+const ClientLogo = ({ name, logo, url, description }: ClientLogoProps) => {
   const content = (
     <div className="group relative aspect-video bg-card rounded-xl border border-border overflow-hidden transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_30px_hsl(20_90%_55%/0.15)]">
       <div className="absolute inset-0 bg-gradient-to-br from-background/50 to-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      <div className="w-full h-full flex items-center justify-center p-6">
+      <div className="w-full h-full flex items-center justify-center p-8">
         <img
           src={logo}
           alt={`${name} - клиент EVENTWAVE`}
           className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500"
         />
       </div>
-      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/90 to-transparent p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/95 to-transparent p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
         <p className="text-foreground font-medium text-center">{name}</p>
       </div>
     </div>
@@ -86,10 +99,24 @@ const Clients = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {clients.map((client) => (
-              <ClientLogo key={client.name} {...client} />
-            ))}
+          <div className="max-w-4xl mx-auto">
+            <Carousel
+              opts={{
+                align: "center",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-4">
+                {clients.map((client) => (
+                  <CarouselItem key={client.name} className="pl-4 md:basis-1/2 lg:basis-1/2">
+                    <ClientLogo {...client} />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-0 md:-left-12" />
+              <CarouselNext className="right-0 md:-right-12" />
+            </Carousel>
           </div>
 
           <div className="text-center mt-16">

@@ -82,9 +82,9 @@ const services = [
 ];
 
 const stats = [
-  { value: "50+", label: "Мероприятий" },
-  { value: "30+", label: "Довольных клиентов" },
-  { value: "5+", label: "Лет на рынке" },
+  { value: "Более 100", label: "Мероприятий" },
+  { value: "Более 30", label: "Клиентов" },
+  { value: "5 лет", label: "На рынке" },
 ];
 
 const Index = () => {
@@ -199,7 +199,7 @@ const Index = () => {
             <div className="relative">
               <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 border border-border p-8 flex items-center justify-center">
                 <div className="text-center">
-                  <p className="text-6xl md:text-8xl font-heading font-black text-primary">50+</p>
+                  <p className="text-5xl md:text-7xl font-heading font-black text-primary">Более 100</p>
                   <p className="text-xl text-muted-foreground mt-2">успешных мероприятий</p>
                 </div>
               </div>
