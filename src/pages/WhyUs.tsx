@@ -90,13 +90,13 @@ const WhyUs = () => {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-6 mb-20">
             {[
-              { value: "50+", label: "Мероприятий" },
-              { value: "30+", label: "Довольных клиентов" },
-              { value: "5+", label: "Лет на рынке" },
+              { value: "Более 100", label: "Мероприятий" },
+              { value: "Более 30", label: "Клиентов" },
+              { value: "5 лет", label: "На рынке" },
             ].map((stat) => (
               <div 
                 key={stat.label} 
-                className="text-center p-6 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 border border-border"
+                className="text-center p-6"
               >
                 <p className="text-3xl md:text-4xl font-heading font-black text-primary">
                   {stat.value}
