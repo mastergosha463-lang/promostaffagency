@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useCallback, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 // Client logos
 import inditexLogo from "@/assets/clients/inditex.jpg";
@@ -17,44 +18,14 @@ interface ClientLogoProps {
   logo: string;
   url?: string;
   description?: string;
+  descriptionEng?: string;
   isActive?: boolean;
   cropBottom?: boolean;
 }
 
-const clients: ClientLogoProps[] = [
-  {
-    name: "Eventous",
-    logo: eventousLogo,
-    url: "https://eventous.ru",
-    description: "Профессиональное event-агентство полного цикла в Москве",
-    cropBottom: true,
-  },
-  {
-    name: "Community Moscow",
-    logo: communityLogo,
-    url: "https://communitymoscow.ru",
-    description: "Ресторан с авторской кухней и уникальной атмосферой",
-  },
-  {
-    name: "Community Russia",
-    logo: comrushLogo,
-    url: "https://www.instagram.com/community.russia",
-    description: "Сеть ресторанов Community в России",
-  },
-  {
-    name: "Flowerbazar",
-    logo: flowerbazarLogo,
-    url: "https://flowerbazar.ru",
-    description: "Цветочный магазин с доставкой по Москве",
-  },
-  {
-    name: "Inditex",
-    logo: inditexLogo,
-    description: "Inditex — крупнейший в мире ритейлер одежды, основанный Амансио Ортегой в 1985 году в Испании. Компания владеет такими брендами как Zara, Pull&Bear, Massimo Dutti, Bershka, Stradivarius, Oysho и другими.",
-  },
-];
-
 const ClientLogo = ({ name, logo, url, isActive = true, cropBottom = false }: ClientLogoProps) => {
+  const { language } = useLanguage();
+  
   const content = (
     <div 
       className={`group relative aspect-video bg-card rounded-xl border overflow-hidden transition-all duration-500 ${
@@ -66,7 +37,7 @@ const ClientLogo = ({ name, logo, url, isActive = true, cropBottom = false }: Cl
       <div className={`w-full h-full flex items-center justify-center p-8 ${cropBottom ? "overflow-hidden" : ""}`}>
         <img
           src={logo}
-          alt={`${name} - клиент EVENTWAVE`}
+          alt={`${name} - ${language === "RU" ? "клиент EVENTWAVE" : "EVENTWAVE client"}`}
           className={`max-w-full object-contain transition-all duration-500 ${
             isActive ? "grayscale-0" : "grayscale"
           } ${cropBottom ? "max-h-[140%] -mb-12" : "max-h-full"}`}
@@ -92,11 +63,50 @@ const ClientLogo = ({ name, logo, url, isActive = true, cropBottom = false }: Cl
 };
 
 const Clients = () => {
+  const { language, t } = useLanguage();
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "center",
     loop: true,
   });
+
+  const clients: ClientLogoProps[] = [
+    {
+      name: "Eventous",
+      logo: eventousLogo,
+      url: "https://eventous.ru",
+      description: "Профессиональное event-агентство полного цикла в Москве",
+      descriptionEng: "Professional full-cycle event agency in Moscow",
+      cropBottom: true,
+    },
+    {
+      name: "Community Moscow",
+      logo: communityLogo,
+      url: "https://communitymoscow.ru",
+      description: "Ресторан с авторской кухней и уникальной атмосферой",
+      descriptionEng: "Restaurant with signature cuisine and unique atmosphere",
+    },
+    {
+      name: "Community Russia",
+      logo: comrushLogo,
+      url: "https://www.instagram.com/community.russia",
+      description: "Сеть ресторанов Community в России",
+      descriptionEng: "Community restaurant chain in Russia",
+    },
+    {
+      name: "Flowerbazar",
+      logo: flowerbazarLogo,
+      url: "https://flowerbazar.ru",
+      description: "Цветочный магазин с доставкой по Москве",
+      descriptionEng: "Flower shop with delivery in Moscow",
+    },
+    {
+      name: "Inditex",
+      logo: inditexLogo,
+      description: "Inditex — крупнейший в мире ритейлер одежды, основанный Амансио Ортегой в 1985 году в Испании. Компания владеет такими брендами как Zara, Pull&Bear, Massimo Dutti, Bershka, Stradivarius, Oysho и другими.",
+      descriptionEng: "Inditex is the world's largest clothing retailer, founded by Amancio Ortega in 1985 in Spain. The company owns brands such as Zara, Pull&Bear, Massimo Dutti, Bershka, Stradivarius, Oysho and others.",
+    },
+  ];
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -126,11 +136,13 @@ const Clients = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h1 className="font-heading text-4xl md:text-5xl font-bold mb-4">
-              Наши <span className="text-primary">клиенты</span>
+              {language === "RU" ? "Наши" : "Our"} <span className="text-primary">{language === "RU" ? "клиенты" : "Clients"}</span>
             </h1>
             
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Компании, которые доверяют EVENTWAVE организацию персонала для своих мероприятий
+              {language === "RU" 
+                ? "Компании, которые доверяют EVENTWAVE организацию персонала для своих мероприятий"
+                : "Companies that trust EVENTWAVE to organize staff for their events"}
             </p>
           </div>
 
@@ -184,11 +196,11 @@ const Clients = () => {
 
           <div className="text-center mt-16">
             <p className="text-muted-foreground mb-6">
-              Хотите стать нашим клиентом?
+              {language === "RU" ? "Хотите стать нашим клиентом?" : "Want to become our client?"}
             </p>
             <Link to="/contacts">
               <Button variant="hero" size="lg">
-                Оставить заявку
+                {t("nav.cta")}
                 <ArrowRight className="w-4 h-4" />
               </Button>
             </Link>
