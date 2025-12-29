@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import ContactIcons from "./ContactIcons";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
+  const { language } = useLanguage();
+
   return (
     <footer className="bg-card border-t border-border py-12">
       <div className="container mx-auto px-4">
@@ -18,7 +21,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div className="text-center md:text-right">
-            <p className="text-muted-foreground text-sm mb-2">Руслан</p>
+            <p className="text-muted-foreground text-sm mb-2">{language === "RU" ? "Руслан" : "Ruslan"}</p>
             <a 
               href="tel:+79257420436" 
               className="text-primary font-medium hover:underline"
@@ -32,7 +35,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} EVENTWAVE. Все права защищены.
+          © {new Date().getFullYear()} EVENTWAVE. {language === "RU" ? "Все права защищены." : "All rights reserved."}
         </div>
       </div>
     </footer>

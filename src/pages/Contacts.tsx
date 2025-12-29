@@ -2,18 +2,23 @@ import Layout from "@/components/Layout";
 import ContactIcons from "@/components/ContactIcons";
 import { Button } from "@/components/ui/button";
 import { Phone, MapPin, Clock } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Contacts = () => {
+  const { language } = useLanguage();
+
   return (
     <Layout>
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h1 className="font-heading text-4xl md:text-5xl font-bold">
-              <span className="text-primary">Контакты</span>
+              <span className="text-primary">{language === "RU" ? "Контакты" : "Contacts"}</span>
             </h1>
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-              Свяжитесь с нами любым удобным способом. Мы ответим в течение часа.
+              {language === "RU" 
+                ? "Свяжитесь с нами любым удобным способом. Мы ответим в течение часа."
+                : "Contact us in any convenient way. We will respond within an hour."}
             </p>
           </div>
 
@@ -22,7 +27,7 @@ const Contacts = () => {
               {/* Contact Info */}
               <div className="space-y-8">
                 <div className="p-6 rounded-xl bg-card border border-border">
-                  <h3 className="font-heading font-bold text-xl mb-6">Руслан</h3>
+                  <h3 className="font-heading font-bold text-xl mb-6">{language === "RU" ? "Руслан" : "Ruslan"}</h3>
                   
                   <div className="space-y-4">
                     <a 
@@ -33,7 +38,7 @@ const Contacts = () => {
                         <Phone className="w-5 h-5" />
                       </div>
                       <div>
-                        <p className="text-sm text-muted-foreground">Телефон</p>
+                        <p className="text-sm text-muted-foreground">{language === "RU" ? "Телефон" : "Phone"}</p>
                         <p className="font-semibold text-foreground">+7 (925) 742-04-36</p>
                       </div>
                     </a>
@@ -43,8 +48,8 @@ const Contacts = () => {
                         <MapPin className="w-5 h-5" />
                       </div>
                       <div>
-                        <p className="text-sm text-muted-foreground">Город</p>
-                        <p className="font-semibold text-foreground">Москва</p>
+                        <p className="text-sm text-muted-foreground">{language === "RU" ? "Город" : "City"}</p>
+                        <p className="font-semibold text-foreground">{language === "RU" ? "Москва" : "Moscow"}</p>
                       </div>
                     </div>
 
@@ -53,7 +58,7 @@ const Contacts = () => {
                         <Clock className="w-5 h-5" />
                       </div>
                       <div>
-                        <p className="text-sm text-muted-foreground">Режим работы</p>
+                        <p className="text-sm text-muted-foreground">{language === "RU" ? "Режим работы" : "Working Hours"}</p>
                         <p className="font-semibold text-foreground">24/7</p>
                       </div>
                     </div>
@@ -62,21 +67,27 @@ const Contacts = () => {
 
                 {/* Social Links */}
                 <div className="p-6 rounded-xl bg-card border border-border">
-                  <h3 className="font-heading font-bold text-lg mb-4">Мессенджеры</h3>
+                  <h3 className="font-heading font-bold text-lg mb-4">{language === "RU" ? "Мессенджеры" : "Messengers"}</h3>
                   <ContactIcons size="lg" />
                   <p className="text-sm text-muted-foreground mt-4">
-                    Напишите в любой мессенджер — ответим в течение 15 минут
+                    {language === "RU" 
+                      ? "Напишите в любой мессенджер — ответим в течение 15 минут"
+                      : "Write to any messenger — we will respond within 15 minutes"}
                   </p>
                 </div>
               </div>
 
               {/* Contact Form */}
               <div className="p-6 rounded-xl bg-card border border-border">
-                <h3 className="font-heading font-bold text-xl mb-6">Оставить заявку</h3>
+                <h3 className="font-heading font-bold text-xl mb-6">
+                  {language === "RU" ? "Оставить заявку" : "Leave a Request"}
+                </h3>
                 
                 <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
                   <div>
-                    <label className="text-sm text-muted-foreground mb-2 block">Ваше имя</label>
+                    <label className="text-sm text-muted-foreground mb-2 block">
+                      {language === "RU" ? "Ваше имя" : "Your Name"}
+                    </label>
                     <input 
                       type="text"
                       className="w-full px-4 py-3 rounded-lg bg-secondary border border-border focus:border-primary focus:outline-none transition-colors text-foreground"
@@ -84,7 +95,9 @@ const Contacts = () => {
                   </div>
                   
                   <div>
-                    <label className="text-sm text-muted-foreground mb-2 block">Телефон</label>
+                    <label className="text-sm text-muted-foreground mb-2 block">
+                      {language === "RU" ? "Телефон" : "Phone"}
+                    </label>
                     <input 
                       type="tel"
                       className="w-full px-4 py-3 rounded-lg bg-secondary border border-border focus:border-primary focus:outline-none transition-colors text-foreground"
@@ -93,7 +106,9 @@ const Contacts = () => {
                   </div>
                   
                   <div>
-                    <label className="text-sm text-muted-foreground mb-2 block">Тип мероприятия</label>
+                    <label className="text-sm text-muted-foreground mb-2 block">
+                      {language === "RU" ? "Тип мероприятия" : "Event Type"}
+                    </label>
                     <input 
                       type="text"
                       className="w-full px-4 py-3 rounded-lg bg-secondary border border-border focus:border-primary focus:outline-none transition-colors text-foreground"
@@ -101,16 +116,18 @@ const Contacts = () => {
                   </div>
                   
                   <div>
-                    <label className="text-sm text-muted-foreground mb-2 block">Сообщение</label>
+                    <label className="text-sm text-muted-foreground mb-2 block">
+                      {language === "RU" ? "Сообщение" : "Message"}
+                    </label>
                     <textarea 
                       className="w-full px-4 py-3 rounded-lg bg-secondary border border-border focus:border-primary focus:outline-none transition-colors resize-none text-foreground"
                       rows={4}
-                      placeholder="Опишите ваши требования к персоналу..."
+                      placeholder={language === "RU" ? "Опишите ваши требования к персоналу..." : "Describe your staff requirements..."}
                     />
                   </div>
 
                   <Button variant="hero" size="lg" className="w-full">
-                    Отправить заявку
+                    {language === "RU" ? "Отправить заявку" : "Send Request"}
                   </Button>
                 </form>
               </div>

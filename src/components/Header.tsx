@@ -2,18 +2,19 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Menu, X, Globe } from "lucide-react";
-
-const navLinks = [
-  { to: "/", label: "Главная" },
-  { to: "/why-us", label: "Почему мы" },
-  { to: "/clients", label: "Клиенты" },
-  { to: "/contacts", label: "Контакты" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Header = () => {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [language, setLanguage] = useState<"RU" | "ENG">("RU");
+  const { language, setLanguage, t } = useLanguage();
+
+  const navLinks = [
+    { to: "/", label: t("nav.home") },
+    { to: "/why-us", label: t("nav.whyUs") },
+    { to: "/clients", label: t("nav.clients") },
+    { to: "/contacts", label: t("nav.contacts") },
+  ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
@@ -52,7 +53,7 @@ const Header = () => {
             </button>
             <Link to="/contacts">
               <Button variant="hero" size="lg">
-                Оставить заявку
+                {t("nav.cta")}
               </Button>
             </Link>
           </div>
@@ -94,7 +95,7 @@ const Header = () => {
                 </button>
                 <Link to="/contacts" onClick={() => setMobileMenuOpen(false)} className="flex-1">
                   <Button variant="hero" size="lg" className="w-full">
-                    Оставить заявку
+                    {t("nav.cta")}
                   </Button>
                 </Link>
               </div>
