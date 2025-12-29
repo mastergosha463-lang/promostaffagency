@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 
 const navLinks = [
   { to: "/", label: "Главная" },
@@ -13,6 +13,7 @@ const navLinks = [
 const Header = () => {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [language, setLanguage] = useState<"RU" | "ENG">("RU");
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
@@ -40,8 +41,15 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* Language Toggle & CTA Button */}
+          <div className="hidden md:flex items-center gap-3">
+            <button
+              onClick={() => setLanguage(language === "RU" ? "ENG" : "RU")}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/50 bg-secondary/50 hover:bg-secondary transition-colors text-sm font-medium"
+            >
+              <Globe size={16} className="text-primary" />
+              <span>{language}</span>
+            </button>
             <Link to="/contacts">
               <Button variant="hero" size="lg">
                 Оставить заявку
@@ -76,11 +84,20 @@ const Header = () => {
                   {link.label}
                 </Link>
               ))}
-              <Link to="/contacts" onClick={() => setMobileMenuOpen(false)}>
-                <Button variant="hero" size="lg" className="w-full mt-2">
-                  Оставить заявку
-                </Button>
-              </Link>
+              <div className="flex items-center gap-3 mt-2">
+                <button
+                  onClick={() => setLanguage(language === "RU" ? "ENG" : "RU")}
+                  className="flex items-center gap-1.5 px-3 py-2 rounded-lg border border-border/50 bg-secondary/50 hover:bg-secondary transition-colors text-sm font-medium"
+                >
+                  <Globe size={16} className="text-primary" />
+                  <span>{language}</span>
+                </button>
+                <Link to="/contacts" onClick={() => setMobileMenuOpen(false)} className="flex-1">
+                  <Button variant="hero" size="lg" className="w-full">
+                    Оставить заявку
+                  </Button>
+                </Link>
+              </div>
             </nav>
           </div>
         )}
