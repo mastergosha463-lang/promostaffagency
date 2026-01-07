@@ -37,8 +37,8 @@ const translations: Record<Language, Record<string, string>> = {
     "services.models.desc": "Профессиональные модели для показов, фотосессий и представительских мероприятий",
     "services.cleaning.title": "Клининг",
     "services.cleaning.desc": "Профессиональная уборка до, во время и после мероприятий для поддержания чистоты и порядка",
-    "services.couriers.title": "Курьеры",
-    "services.couriers.desc": "Оперативная доставка материалов, документов и оборудования для вашего мероприятия",
+    "services.promoModel.title": "Промо-модель",
+    "services.promoModel.desc": "Модель на подиум, стенд, съемку",
     "services.learnMore": "Подробнее",
 
     // Why Us page
@@ -125,8 +125,8 @@ const translations: Record<Language, Record<string, string>> = {
     "services.models.desc": "Professional models for fashion shows, photo shoots and representative events",
     "services.cleaning.title": "Cleaning",
     "services.cleaning.desc": "Professional cleaning before, during and after events to maintain cleanliness and order",
-    "services.couriers.title": "Couriers",
-    "services.couriers.desc": "Fast delivery of materials, documents and equipment for your event",
+    "services.promoModel.title": "Promo Model",
+    "services.promoModel.desc": "Model for podium, booth, photo shoots",
     "services.learnMore": "Learn More",
 
     // Why Us page
