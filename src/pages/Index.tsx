@@ -15,8 +15,7 @@ import {
   Music,
   CheckCircle2,
   ArrowRight,
-  SprayCan,
-  Bike
+  SprayCan
 } from "lucide-react";
 import heroWave from "@/assets/hero-wave.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -92,10 +91,10 @@ const Index = () => {
       to: "/staff/cleaning"
     },
     {
-      title: language === "RU" ? "Курьеры" : "Couriers",
-      description: language === "RU" ? "Оперативная доставка материалов и документов" : "Fast delivery of materials and documents",
-      icon: Bike,
-      to: "/staff/couriers"
+      title: language === "RU" ? "Промо-модель" : "Promo Model",
+      description: language === "RU" ? "Модель на подиум, стенд, съемку" : "Model for podium, booth, photo shoots",
+      icon: Camera,
+      to: "/staff/promo-model"
     },
   ];
 
