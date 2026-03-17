@@ -16,7 +16,7 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         // EVENTWAVE custom variants
-        hero: "bg-primary text-primary-foreground font-heading font-bold hover:scale-105 glow-primary hover:shadow-[0_0_50px_hsl(20_90%_55%/0.5)]",
+        hero: "bg-primary text-primary-foreground font-bold hover:scale-[1.02] glow-primary hover:shadow-[0_0_60px_hsl(35_85%_55%/0.4)] tracking-wide transition-all duration-300",
         service: "bg-card border border-border text-foreground hover:border-primary hover:bg-secondary transition-all duration-300",
         nav: "text-foreground/80 hover:text-primary font-medium bg-transparent",
       },
