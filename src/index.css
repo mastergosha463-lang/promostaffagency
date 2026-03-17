@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,75 +6,77 @@
 
 @layer base {
   :root {
-    /* EVENTWAVE Dark Theme - Orange Accents */
-    --background: 220 20% 6%;
-    --foreground: 30 15% 95%;
+    /* Premium Dark Theme - Warm Gold & Charcoal */
+    --background: 220 15% 5%;
+    --foreground: 40 20% 95%;
 
-    --card: 220 18% 10%;
-    --card-foreground: 30 15% 95%;
+    --card: 220 12% 9%;
+    --card-foreground: 40 20% 95%;
 
-    --popover: 220 18% 10%;
-    --popover-foreground: 30 15% 95%;
+    --popover: 220 12% 9%;
+    --popover-foreground: 40 20% 95%;
 
-    --primary: 20 90% 55%;
-    --primary-foreground: 220 20% 6%;
+    --primary: 35 85% 55%;
+    --primary-foreground: 220 15% 5%;
 
-    --secondary: 220 15% 15%;
-    --secondary-foreground: 30 15% 95%;
+    --secondary: 220 10% 13%;
+    --secondary-foreground: 40 20% 95%;
 
-    --muted: 220 15% 18%;
-    --muted-foreground: 220 10% 60%;
+    --muted: 220 10% 16%;
+    --muted-foreground: 220 8% 55%;
 
-    --accent: 15 85% 50%;
-    --accent-foreground: 30 15% 95%;
+    --accent: 30 80% 48%;
+    --accent-foreground: 40 20% 95%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 15% 20%;
-    --input: 220 15% 20%;
-    --ring: 20 90% 55%;
+    --border: 220 10% 16%;
+    --input: 220 10% 16%;
+    --ring: 35 85% 55%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* Custom EVENTWAVE tokens */
-    --orange-glow: 20 100% 50%;
-    --orange-dark: 15 80% 40%;
-    --gradient-hero: linear-gradient(135deg, hsl(20 90% 55%) 0%, hsl(10 85% 45%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(220 18% 12%) 0%, hsl(220 18% 8%) 100%);
-    --shadow-glow: 0 0 40px hsl(20 90% 55% / 0.3);
-    --shadow-card: 0 4px 24px hsl(0 0% 0% / 0.4);
-    
-    --sidebar-background: 220 20% 8%;
-    --sidebar-foreground: 30 15% 95%;
-    --sidebar-primary: 20 90% 55%;
-    --sidebar-primary-foreground: 220 20% 6%;
-    --sidebar-accent: 220 15% 15%;
-    --sidebar-accent-foreground: 30 15% 95%;
-    --sidebar-border: 220 15% 20%;
-    --sidebar-ring: 20 90% 55%;
+    /* Premium EVENTWAVE tokens */
+    --gold-glow: 35 100% 50%;
+    --gold-dark: 30 70% 38%;
+    --gradient-hero: linear-gradient(135deg, hsl(35 85% 55%) 0%, hsl(25 80% 45%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(220 12% 11%) 0%, hsl(220 12% 7%) 100%);
+    --gradient-premium: linear-gradient(135deg, hsl(35 85% 55%) 0%, hsl(45 90% 60%) 50%, hsl(25 80% 45%) 100%);
+    --shadow-glow: 0 0 60px hsl(35 85% 55% / 0.2);
+    --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.5);
+    --shadow-premium: 0 20px 60px hsl(0 0% 0% / 0.4);
+
+    --sidebar-background: 220 15% 7%;
+    --sidebar-foreground: 40 20% 95%;
+    --sidebar-primary: 35 85% 55%;
+    --sidebar-primary-foreground: 220 15% 5%;
+    --sidebar-accent: 220 10% 13%;
+    --sidebar-accent-foreground: 40 20% 95%;
+    --sidebar-border: 220 10% 16%;
+    --sidebar-ring: 35 85% 55%;
   }
 
   .dark {
-    --background: 220 20% 6%;
-    --foreground: 30 15% 95%;
-    --card: 220 18% 10%;
-    --card-foreground: 30 15% 95%;
-    --popover: 220 18% 10%;
-    --popover-foreground: 30 15% 95%;
-    --primary: 20 90% 55%;
-    --primary-foreground: 220 20% 6%;
-    --secondary: 220 15% 15%;
-    --secondary-foreground: 30 15% 95%;
-    --muted: 220 15% 18%;
-    --muted-foreground: 220 10% 60%;
-    --accent: 15 85% 50%;
-    --accent-foreground: 30 15% 95%;
+    --background: 220 15% 5%;
+    --foreground: 40 20% 95%;
+    --card: 220 12% 9%;
+    --card-foreground: 40 20% 95%;
+    --popover: 220 12% 9%;
+    --popover-foreground: 40 20% 95%;
+    --primary: 35 85% 55%;
+    --primary-foreground: 220 15% 5%;
+    --secondary: 220 10% 13%;
+    --secondary-foreground: 40 20% 95%;
+    --muted: 220 10% 16%;
+    --muted-foreground: 220 8% 55%;
+    --accent: 30 80% 48%;
+    --accent-foreground: 40 20% 95%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 220 15% 20%;
-    --input: 220 15% 20%;
-    --ring: 20 90% 55%;
+    --border: 220 10% 16%;
+    --input: 220 10% 16%;
+    --ring: 35 85% 55%;
   }
 }
 
@@ -88,11 +90,13 @@
   }
 
   body {
-    @apply bg-background text-foreground font-body antialiased;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'DM Sans', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-bold;
+    font-family: 'Playfair Display', serif;
+    @apply font-bold;
   }
 }
 
@@ -102,12 +106,21 @@
     background-image: var(--gradient-hero);
   }
 
+  .text-gradient-premium {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-premium);
+  }
+
   .glow-primary {
     box-shadow: var(--shadow-glow);
   }
 
   .card-gradient {
     background: var(--gradient-card);
+  }
+
+  .premium-border {
+    border-image: var(--gradient-premium) 1;
   }
 
   .animate-float {
@@ -119,48 +132,39 @@
   }
 
   .animate-slide-up {
-    animation: slide-up 0.6s ease-out forwards;
+    animation: slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   .animate-fade-in {
-    animation: fade-in 0.8s ease-out forwards;
+    animation: fade-in 1s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 }
 
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 @keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px hsl(20 90% 55% / 0.3);
-  }
-  50% {
-    box-shadow: 0 0 40px hsl(20 90% 55% / 0.5);
-  }
+  0%, 100% { box-shadow: 0 0 20px hsl(35 85% 55% / 0.2); }
+  50% { box-shadow: 0 0 50px hsl(35 85% 55% / 0.4); }
 }
 
 @keyframes slide-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
 }
