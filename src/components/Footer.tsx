@@ -6,7 +6,7 @@ const Footer = () => {
   const { language } = useLanguage();
 
   return (
-    <footer className="bg-card/80 border-t border-border/50 py-16">
+    <footer className="bg-card border-t border-border py-12">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Brand */}

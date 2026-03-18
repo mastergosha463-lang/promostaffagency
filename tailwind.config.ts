@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["Playfair Display", "serif"],
-        body: ["DM Sans", "sans-serif"],
+        heading: ["Montserrat", "sans-serif"],
+        body: ["Inter", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -51,9 +51,9 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        gold: {
-          glow: "hsl(var(--gold-glow))",
-          dark: "hsl(var(--gold-dark))",
+        orange: {
+          glow: "hsl(var(--orange-glow))",
+          dark: "hsl(var(--orange-dark))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",

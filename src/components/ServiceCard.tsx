@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { LucideIcon, ArrowRight } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 
 interface ServiceCardProps {
   title: string;
@@ -13,26 +13,24 @@ const ServiceCard = ({ title, description, icon: Icon, to, price }: ServiceCardP
   return (
     <Link 
       to={to}
-      className="group block p-6 rounded-2xl bg-card border border-border hover:border-primary/40 transition-all duration-500 hover:shadow-[0_8px_40px_hsl(35_85%_55%/0.1)]"
+      className="group block p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_30px_hsl(20_90%_55%/0.15)]"
     >
-      <div className="flex flex-col gap-4">
-        <div className="p-3 rounded-xl bg-primary/10 text-primary w-fit group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
+      <div className="flex items-start gap-4">
+        <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
           <Icon className="w-6 h-6" />
         </div>
-        <div>
-          <h3 className="font-heading font-bold text-lg text-foreground group-hover:text-primary transition-colors duration-300">
+        <div className="flex-1">
+          <h3 className="font-heading font-bold text-lg text-foreground group-hover:text-primary transition-colors">
             {title}
           </h3>
-          <p className="text-muted-foreground text-sm mt-2 leading-relaxed line-clamp-2">
+          <p className="text-muted-foreground text-sm mt-1 line-clamp-2">
             {description}
           </p>
           {price && (
-            <p className="text-primary font-semibold mt-3">{price}</p>
+            <p className="text-primary font-semibold mt-2">
+              {price}
+            </p>
           )}
-        </div>
-        <div className="flex items-center gap-1 text-primary text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <span>Подробнее</span>
-          <ArrowRight className="w-3.5 h-3.5" />
         </div>
       </div>
     </Link>
