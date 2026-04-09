@@ -91,22 +91,9 @@ const Contacts = () => {
               {/* Contact Info */}
               <div className="space-y-8">
                 <div className="p-6 rounded-xl bg-card border border-border">
-                  <h3 className="font-heading font-bold text-xl mb-6">{language === "RU" ? "Руслан" : "Ruslan"}</h3>
+                  <h3 className="font-heading font-bold text-xl mb-6">{language === "RU" ? "Контактная информация" : "Contact Information"}</h3>
 
                   <div className="space-y-4">
-                    <a
-                      href="tel:+79257420436"
-                      className="flex items-center gap-4 p-4 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors group"
-                    >
-                      <div className="p-3 rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                        <Phone className="w-5 h-5" />
-                      </div>
-                      <div>
-                        <p className="text-sm text-muted-foreground">{language === "RU" ? "Телефон" : "Phone"}</p>
-                        <p className="font-semibold text-foreground">+7 (925) 742-04-36</p>
-                      </div>
-                    </a>
-
                     <div className="flex items-center gap-4 p-4 rounded-lg bg-secondary">
                       <div className="p-3 rounded-full bg-primary/10 text-primary">
                         <MapPin className="w-5 h-5" />
