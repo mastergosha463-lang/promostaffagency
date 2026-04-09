@@ -7,15 +7,10 @@ import {
   Megaphone, 
   Sparkles, 
   Wrench, 
-  Palette, 
   UtensilsCrossed, 
-  PartyPopper, 
-  ClipboardCheck,
   Camera,
-  Music,
   CheckCircle2,
-  ArrowRight,
-  SprayCan
+  ArrowRight
 } from "lucide-react";
 import heroWave from "@/assets/hero-wave.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -31,22 +26,10 @@ const Index = () => {
       to: "/staff/helpers"
     },
     {
-      title: language === "RU" ? "Промо-персонал" : "Promo Staff",
-      description: language === "RU" ? "Промоутеры для раздачи материалов и привлечения внимания" : "Promoters for distributing materials and attracting attention",
-      icon: Megaphone,
-      to: "/staff/promo"
-    },
-    {
-      title: language === "RU" ? "Кейтеринг" : "Catering",
-      description: language === "RU" ? "Официанты, бармены и персонал для обслуживания" : "Waiters, bartenders and service staff",
-      icon: UtensilsCrossed,
-      to: "/staff/catering"
-    },
-    {
-      title: language === "RU" ? "Декораторы" : "Decorators",
-      description: language === "RU" ? "Оформление площадок и создание атмосферы" : "Venue decoration and atmosphere creation",
-      icon: Palette,
-      to: "/staff/decorators"
+      title: language === "RU" ? "Монтажники" : "Installers",
+      description: language === "RU" ? "Сборка и разборка конструкций, оборудования" : "Assembly and disassembly of structures and equipment",
+      icon: Wrench,
+      to: "/staff/installers"
     },
     {
       title: language === "RU" ? "Хостес" : "Hostesses",
@@ -55,46 +38,22 @@ const Index = () => {
       to: "/staff/hostess"
     },
     {
-      title: language === "RU" ? "Монтажники" : "Installers",
-      description: language === "RU" ? "Сборка и разборка конструкций, оборудования" : "Assembly and disassembly of structures and equipment",
-      icon: Wrench,
-      to: "/staff/installers"
-    },
-    {
-      title: language === "RU" ? "Аниматоры" : "Animators",
-      description: language === "RU" ? "Ведущие, аниматоры и развлекательные программы" : "Hosts, animators and entertainment programs",
-      icon: PartyPopper,
-      to: "/staff/animators"
-    },
-    {
-      title: language === "RU" ? "Супервайзеры" : "Supervisors",
-      description: language === "RU" ? "Координация команды и контроль качества" : "Team coordination and quality control",
-      icon: ClipboardCheck,
-      to: "/staff/supervisors"
-    },
-    {
-      title: language === "RU" ? "Фотографы" : "Photographers",
-      description: language === "RU" ? "Профессиональная съёмка мероприятий" : "Professional event photography",
-      icon: Camera,
-      to: "/staff/photographers"
-    },
-    {
-      title: "DJ",
-      description: language === "RU" ? "Музыкальное сопровождение мероприятий" : "Musical accompaniment for events",
-      icon: Music,
-      to: "/staff/dj"
-    },
-    {
-      title: language === "RU" ? "Клининг" : "Cleaning",
-      description: language === "RU" ? "Уборка и поддержание чистоты на площадке" : "Cleaning and maintaining venue cleanliness",
-      icon: SprayCan,
-      to: "/staff/cleaning"
+      title: language === "RU" ? "Промо-персонал" : "Promo Staff",
+      description: language === "RU" ? "Промоутеры для раздачи материалов и привлечения внимания" : "Promoters for distributing materials and attracting attention",
+      icon: Megaphone,
+      to: "/staff/promo"
     },
     {
       title: language === "RU" ? "Промо-модель" : "Promo Model",
       description: language === "RU" ? "Модель на подиум, стенд, съемку" : "Model for podium, booth, photo shoots",
       icon: Camera,
       to: "/staff/promo-model"
+    },
+    {
+      title: language === "RU" ? "Кейтеринг" : "Catering",
+      description: language === "RU" ? "Официанты, бармены и персонал для обслуживания" : "Waiters, bartenders and service staff",
+      icon: UtensilsCrossed,
+      to: "/staff/catering"
     },
   ];
 
