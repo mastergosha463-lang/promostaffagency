@@ -7,15 +7,10 @@ import {
   Megaphone, 
   Sparkles, 
   Wrench, 
-  Palette, 
   UtensilsCrossed, 
-  PartyPopper, 
-  ClipboardCheck,
   Camera,
-  Music,
   CheckCircle2,
-  ArrowRight,
-  SprayCan
+  ArrowRight
 } from "lucide-react";
 import heroWave from "@/assets/hero-wave.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";

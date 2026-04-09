@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import ContactIcons from "@/components/ContactIcons";
 import { Button } from "@/components/ui/button";
-import { Phone, MapPin, Clock, CheckCircle } from "lucide-react";
+import { MapPin, Clock, CheckCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
