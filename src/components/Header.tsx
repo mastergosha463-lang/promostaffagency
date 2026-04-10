@@ -21,9 +21,12 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <span className="font-heading text-xl md:text-2xl font-black tracking-tight">
+            <span className="font-heading text-xl md:text-2xl font-black tracking-tight leading-tight">
               <span className="text-foreground">EVENT</span>
               <span className="text-primary">WAVE</span>
+              <span className="block text-[10px] md:text-xs font-medium text-muted-foreground tracking-normal">
+                {language === "RU" ? "Персонал для мероприятий" : "Event Staffing"}
+              </span>
             </span>
           </Link>
 

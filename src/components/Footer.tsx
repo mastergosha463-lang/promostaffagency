@@ -12,9 +12,12 @@ const Footer = () => {
           {/* Brand */}
           <div className="text-center md:text-left">
             <Link to="/" className="inline-block">
-              <span className="font-heading text-4xl font-black tracking-tight">
+              <span className="font-heading text-4xl font-black tracking-tight leading-tight">
                 <span className="text-foreground">EVENT</span>
                 <span className="text-primary">WAVE</span>
+                <span className="block text-sm font-medium text-muted-foreground tracking-normal">
+                  {language === "RU" ? "Персонал для мероприятий" : "Event Staffing"}
+                </span>
               </span>
             </Link>
           </div>
