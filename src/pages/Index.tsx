@@ -55,6 +55,12 @@ const Index = () => {
       icon: UtensilsCrossed,
       to: "/staff/catering"
     },
+    {
+      title: language === "RU" ? "Курьеры" : "Couriers",
+      description: language === "RU" ? "Оперативная доставка материалов и реквизита на мероприятия" : "Prompt delivery of materials and props for events",
+      icon: Users,
+      to: "/staff/couriers"
+    },
   ];
 
   const whyUsPoints = language === "RU" 
@@ -149,6 +155,9 @@ const Index = () => {
             <div>
               <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6">
                 {language === "RU" ? "Почему выбирают" : "Why Choose"} <span className="text-primary">EVENTWAVE</span>
+                <span className="block text-lg font-normal text-muted-foreground mt-1">
+                  {language === "RU" ? "Агентство по подбору персонала для мероприятий" : "Event staffing agency"}
+                </span>
               </h2>
               <ul className="space-y-4">
                 {whyUsPoints.map((item) => (

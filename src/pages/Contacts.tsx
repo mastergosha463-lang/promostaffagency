@@ -77,12 +77,12 @@ const Contacts = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h1 className="font-heading text-4xl md:text-5xl font-bold">
-              <span className="text-primary">{language === "RU" ? "Контакты" : "Contacts"}</span>
+              <span className="text-primary">{language === "RU" ? "Сотрудничество" : "Cooperation"}</span>
             </h1>
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
               {language === "RU"
-                ? "Свяжитесь с нами любым удобным способом. Мы ответим в течение часа."
-                : "Contact us in any convenient way. We will respond within an hour."}
+                ? "Оставьте заявку"
+                : "Leave a request"}
             </p>
           </div>
 
@@ -91,7 +91,7 @@ const Contacts = () => {
               {/* Contact Info */}
               <div className="space-y-8">
                 <div className="p-6 rounded-xl bg-card border border-border">
-                  <h3 className="font-heading font-bold text-xl mb-6">{language === "RU" ? "Контактная информация" : "Contact Information"}</h3>
+                  
 
                   <div className="space-y-4">
                     <div className="flex items-center gap-4 p-4 rounded-lg bg-secondary">
