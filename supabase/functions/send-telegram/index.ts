@@ -3,6 +3,8 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version',
 };
 
+const CHAT_IDS = ["5330198316", "4949723456"];
+
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders });
@@ -19,10 +21,20 @@ Deno.serve(async (req) => {
     }
 
     const TELEGRAM_BOT_TOKEN = Deno.env.get('TELEGRAM_BOT_TOKEN');
-    const TELEGRAM_CHAT_ID = Deno.env.get('TELEGRAM_CHAT_ID');
-
-    if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
+    if (!TELEGRAM_BOT_TOKEN) {
       throw new Error('Telegram configuration missing');
+    }
+
+    // Also check env for additional chat IDs
+    const envChatIds = Deno.env.get('TELEGRAM_CHAT_ID');
+    const allChatIds = [...CHAT_IDS];
+    if (envChatIds) {
+      envChatIds.split(',').forEach(id => {
+        const trimmed = id.trim();
+        if (trimmed && !allChatIds.includes(trimmed)) {
+          allChatIds.push(trimmed);
+        }
+      });
     }
 
     const text = `📩 New lead from website
@@ -32,24 +44,30 @@ Deno.serve(async (req) => {
 🎯 Event type: ${event_type}
 📝 Message: ${message || '—'}`;
 
-    const telegramResponse = await fetch(
-      `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chat_id: TELEGRAM_CHAT_ID,
-          text,
-          parse_mode: 'HTML',
-        }),
-      }
+    const results = await Promise.allSettled(
+      allChatIds.map(chatId =>
+        fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text,
+            parse_mode: 'HTML',
+          }),
+        }).then(async (res) => {
+          const data = await res.json();
+          if (!res.ok) {
+            console.error(`Failed to send to chat ${chatId}:`, data);
+            throw new Error(`Failed for chat ${chatId}`);
+          }
+          return data;
+        })
+      )
     );
 
-    const telegramData = await telegramResponse.json();
-
-    if (!telegramResponse.ok) {
-      console.error('Telegram API error:', telegramData);
-      throw new Error('Failed to send Telegram message');
+    const allFailed = results.every(r => r.status === 'rejected');
+    if (allFailed) {
+      throw new Error('Failed to send to all Telegram chats');
     }
 
     return new Response(
