@@ -7,7 +7,7 @@ import {
   Megaphone, 
   Sparkles, 
   Wrench, 
-  UtensilsCrossed, 
+   
   Camera,
   CheckCircle2,
   ArrowRight
@@ -48,12 +48,6 @@ const Index = () => {
       description: language === "RU" ? "Модель на подиум, стенд, съемку" : "Model for podium, booth, photo shoots",
       icon: Camera,
       to: "/staff/promo-model"
-    },
-    {
-      title: language === "RU" ? "Кейтеринг" : "Catering",
-      description: language === "RU" ? "Официанты, бармены и персонал для обслуживания" : "Waiters, bartenders and service staff",
-      icon: UtensilsCrossed,
-      to: "/staff/catering"
     },
     {
       title: language === "RU" ? "Курьеры" : "Couriers",
