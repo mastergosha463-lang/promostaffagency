@@ -1,3 +1,5 @@
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version',
@@ -20,12 +22,27 @@ Deno.serve(async (req) => {
       );
     }
 
+    // Save lead to database
+    const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
+    const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
+    const { error: dbError } = await supabase.from('leads').insert({
+      name,
+      phone,
+      event_type,
+      message: message || '',
+    });
+
+    if (dbError) {
+      console.error('DB insert error:', dbError);
+    }
+
     const TELEGRAM_BOT_TOKEN = Deno.env.get('TELEGRAM_BOT_TOKEN');
     if (!TELEGRAM_BOT_TOKEN) {
       throw new Error('Telegram configuration missing');
     }
 
-    // Also check env for additional chat IDs
     const envChatIds = Deno.env.get('TELEGRAM_CHAT_ID');
     const allChatIds = [...CHAT_IDS];
     if (envChatIds) {
