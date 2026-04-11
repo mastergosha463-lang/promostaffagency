@@ -50,12 +50,6 @@ const Index = () => {
       to: "/staff/promo-model"
     },
     {
-      title: language === "RU" ? "Кейтеринг" : "Catering",
-      description: language === "RU" ? "Официанты, бармены и персонал для обслуживания" : "Waiters, bartenders and service staff",
-      icon: UtensilsCrossed,
-      to: "/staff/catering"
-    },
-    {
       title: language === "RU" ? "Курьеры" : "Couriers",
       description: language === "RU" ? "Оперативная доставка материалов и реквизита на мероприятия" : "Prompt delivery of materials and props for events",
       icon: Users,
