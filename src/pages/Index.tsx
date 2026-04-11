@@ -7,7 +7,7 @@ import {
   Megaphone, 
   Sparkles, 
   Wrench, 
-  UtensilsCrossed, 
+   
   Camera,
   CheckCircle2,
   ArrowRight
