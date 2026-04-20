@@ -7,17 +7,74 @@ const corsHeaders = {
 
 const CHAT_IDS = ["5330198316", "-4949723456"];
 
+// Basic in-memory rate limiter (per edge function instance)
+// 5 requests per IP per 10 minutes
+const RATE_LIMIT_MAX = 5;
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
+const ipHits = new Map<string, number[]>();
+
+const isRateLimited = (ip: string): boolean => {
+  const now = Date.now();
+  const hits = (ipHits.get(ip) || []).filter((t) => now - t < RATE_LIMIT_WINDOW_MS);
+  hits.push(now);
+  ipHits.set(ip, hits);
+  // Opportunistic cleanup
+  if (ipHits.size > 5000) {
+    for (const [k, v] of ipHits) {
+      if (v.every((t) => now - t >= RATE_LIMIT_WINDOW_MS)) ipHits.delete(k);
+    }
+  }
+  return hits.length > RATE_LIMIT_MAX;
+};
+
+const escapeHtml = (s: string): string =>
+  String(s ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+
+const sanitizeField = (s: unknown, maxLen: number): string => {
+  if (typeof s !== "string") return "";
+  return s.trim().slice(0, maxLen);
+};
+
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    const { name, phone, event_type, message } = await req.json();
+    // Identify caller IP for rate limiting
+    const ip =
+      req.headers.get("x-forwarded-for")?.split(",")[0].trim() ||
+      req.headers.get("cf-connecting-ip") ||
+      "unknown";
+
+    if (isRateLimited(ip)) {
+      return new Response(
+        JSON.stringify({ error: 'Too many requests. Please try again later.' }),
+        { status: 429, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    const body = await req.json();
+
+    const name = sanitizeField(body?.name, 100);
+    const phone = sanitizeField(body?.phone, 32);
+    const event_type = sanitizeField(body?.event_type, 100);
+    const message = sanitizeField(body?.message, 1000);
 
     if (!name || !phone || !event_type) {
       return new Response(
         JSON.stringify({ error: 'Missing required fields' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    // Basic phone format check (digits, +, spaces, dashes, parentheses)
+    if (!/^[+\d\s\-()]{6,32}$/.test(phone)) {
+      return new Response(
+        JSON.stringify({ error: 'Invalid phone format' }),
         { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
@@ -54,12 +111,13 @@ Deno.serve(async (req) => {
       });
     }
 
+    // Escape user input before embedding into HTML-formatted Telegram message
     const text = `📩 New lead from website
 
-👤 Name: ${name}
-📞 Phone: ${phone}
-🎯 Event type: ${event_type}
-📝 Message: ${message || '—'}`;
+👤 Name: ${escapeHtml(name)}
+📞 Phone: ${escapeHtml(phone)}
+🎯 Event type: ${escapeHtml(event_type)}
+📝 Message: ${escapeHtml(message) || '—'}`;
 
     const results = await Promise.allSettled(
       allChatIds.map(chatId =>
