@@ -15,9 +15,21 @@ import {
 } from "lucide-react";
 import heroWave from "@/assets/hero-wave.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useSEO } from "@/hooks/useSEO";
 
 const Index = () => {
   const { language, t } = useLanguage();
+  useSEO({
+    title:
+      language === "RU"
+        ? "EVENTWAVE — Надёжный персонал для мероприятий в Москве"
+        : "EVENTWAVE — Reliable event staff in Moscow",
+    description:
+      language === "RU"
+        ? "Подбор персонала для мероприятий в Москве: хелперы, хостес, промоутеры, монтажники. Команды до 40 человек за 24 часа."
+        : "Event staff in Moscow: helpers, hostesses, promoters, installers. Teams of up to 40 in 24 hours.",
+    canonicalPath: "/",
+  });
 
   // Preload hero image as early as possible to improve LCP
   useEffect(() => {

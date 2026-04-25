@@ -11,9 +11,21 @@ import {
   ArrowRight
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useSEO } from "@/hooks/useSEO";
 
 const WhyUs = () => {
   const { language, t } = useLanguage();
+  useSEO({
+    title:
+      language === "RU"
+        ? "Почему EVENTWAVE — агентство персонала для мероприятий в Москве"
+        : "Why EVENTWAVE — event staffing agency in Moscow",
+    description:
+      language === "RU"
+        ? "Опытная команда, 99% доходимость, мобилизация до 40 человек за 24 часа. EVENTWAVE — надёжность в каждой детали события."
+        : "Experienced team, 99% arrival rate, up to 40 staff mobilised in 24 hours. EVENTWAVE — reliability in every detail.",
+    canonicalPath: "/why-us",
+  });
 
   const benefits = [
     {
