@@ -1,21 +1,22 @@
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link, useParams } from "react-router-dom";
-import { 
-  ArrowRight, 
+import {
+  ArrowRight,
   ArrowLeft,
-  Users, 
-  Megaphone, 
-  Sparkles, 
-  Wrench, 
-  Palette, 
-  UtensilsCrossed, 
-  PartyPopper, 
+  Users,
+  Megaphone,
+  Sparkles,
+  Wrench,
+  Palette,
+  UtensilsCrossed,
+  PartyPopper,
   ClipboardCheck,
   Camera,
   Music,
   CheckCircle2
 } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
 
 const staffData: Record<string, {
   title: string;
@@ -172,6 +173,16 @@ const staffData: Record<string, {
 const StaffPage = () => {
   const { type } = useParams<{ type: string }>();
   const staff = type ? staffData[type] : null;
+
+  useSEO({
+    title: staff
+      ? `${staff.title} на мероприятие в Москве — EVENTWAVE`
+      : "Страница не найдена — EVENTWAVE",
+    description: staff
+      ? `${staff.title}: ${staff.description.slice(0, 140)}`
+      : undefined,
+    canonicalPath: type ? `/staff/${type}` : undefined,
+  });
 
   if (!staff) {
     return (
