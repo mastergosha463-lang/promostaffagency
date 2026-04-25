@@ -15,6 +15,9 @@ export const usePageTracking = () => {
   const location = useLocation();
 
   useEffect(() => {
+    // Skip tracking for admin routes to keep analytics clean
+    if (location.pathname.startsWith("/admin")) return;
+
     const track = async () => {
       try {
         await supabase.from("page_views").insert({
