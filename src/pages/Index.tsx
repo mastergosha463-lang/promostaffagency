@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Layout from "@/components/Layout";
 import ServiceCard from "@/components/ServiceCard";
 import { Button } from "@/components/ui/button";
@@ -17,6 +18,19 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {
   const { language, t } = useLanguage();
+
+  // Preload hero image as early as possible to improve LCP
+  useEffect(() => {
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "image";
+    link.href = heroWave;
+    link.fetchPriority = "high";
+    document.head.appendChild(link);
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, []);
 
   const services = [
     {
@@ -81,7 +95,11 @@ const Index = () => {
         <div className="absolute inset-0 z-0">
           <img 
             src={heroWave} 
-            alt="EVENTWAVE" 
+            alt="EVENTWAVE"
+            width={1920}
+            height={1080}
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover opacity-40"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-transparent" />
