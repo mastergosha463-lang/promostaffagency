@@ -37,7 +37,7 @@ const ClientLogo = ({ name, logo, url, isActive = true, cropBottom = false }: Cl
       <div className={`w-full h-full flex items-center justify-center p-8 ${cropBottom ? "overflow-hidden" : ""}`}>
         <img
           src={logo}
-          alt={`${name} - ${language === "RU" ? "клиент ALEX CLOUD" : "ALEX CLOUD client"}`}
+          alt={`${name} - ${language === "RU" ? "клиент CLOUDSTAFF" : "CLOUDSTAFF client"}`}
           className={`max-w-full object-contain transition-all duration-500 ${
             isActive ? "grayscale-0" : "grayscale"
           } ${cropBottom ? "max-h-[140%] -mb-12" : "max-h-full"}`}
@@ -141,8 +141,8 @@ const Clients = () => {
             
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               {language === "RU" 
-                ? "Компании, которые доверяют ALEX CLOUD организацию персонала для своих мероприятий"
-                : "Companies that trust ALEX CLOUD to organize staff for their events"}
+                ? "Компании, которые доверяют CLOUDSTAFF организацию персонала для своих мероприятий"
+                : "Companies that trust CLOUDSTAFF to organize staff for their events"}
             </p>
           </div>
 

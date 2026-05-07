@@ -13,7 +13,7 @@ const ServiceCard = ({ title, description, icon: Icon, to, price }: ServiceCardP
   return (
     <Link 
       to={to}
-      className="group block p-6 rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_30px_hsl(20_90%_55%/0.15)]"
+      className="group block p-6 rounded-xl card-neon"
     >
       <div className="flex items-start gap-4">
         <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">

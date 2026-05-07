@@ -15,10 +15,10 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        // ALEX CLOUD custom variants
-        hero: "bg-primary text-primary-foreground font-heading tracking-[0.15em] uppercase border border-primary/40 hover:bg-primary/90 hover:shadow-[0_0_40px_hsl(351_60%_30%/0.5)] transition-all",
-        service: "bg-card border border-border text-foreground hover:border-accent hover:bg-secondary transition-all duration-300",
-        nav: "text-foreground/70 hover:text-accent font-body font-medium tracking-[0.15em] uppercase text-xs bg-transparent",
+        // CLOUDSTAFF neon variants
+        hero: "bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_auto] text-primary-foreground font-heading tracking-[0.2em] uppercase border border-primary/60 hover:bg-[position:right_center] hover:shadow-[0_0_30px_hsl(322_100%_56%/0.7),0_0_60px_hsl(280_85%_60%/0.4)] transition-all duration-500",
+        service: "bg-card border border-border text-foreground hover:border-primary/60 hover:shadow-[0_0_25px_hsl(322_100%_56%/0.3)] hover:bg-secondary/50 transition-all duration-300",
+        nav: "text-foreground/70 hover:text-primary font-body font-medium tracking-[0.2em] uppercase text-xs bg-transparent transition-colors",
       },
       size: {
         default: "h-10 px-4 py-2",

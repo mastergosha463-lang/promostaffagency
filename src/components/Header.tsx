@@ -17,11 +17,11 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-xl border-b border-primary/20 shadow-[0_1px_30px_hsl(322_100%_56%/0.15)]">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center" aria-label="ALEX CLOUD">
+          <Link to="/" className="flex items-center" aria-label="CLOUDSTAFF">
             <AlexCloudLogo size="md" />
           </Link>
 
