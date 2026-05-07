@@ -151,20 +151,31 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-card/50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold">
+      <section className="relative py-20 bg-card/50 overflow-hidden border-t border-primary/20">
+        {/* Top neon glow continuing from hero */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent" />
+        <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[80%] h-80 bg-primary/20 blur-[120px] rounded-full" />
+        {/* Ambient radial glow behind cards */}
+        <div className="pointer-events-none absolute inset-0 opacity-60"
+          style={{
+            background:
+              "radial-gradient(ellipse 60% 40% at 20% 30%, hsl(322 100% 56% / 0.12), transparent 70%), radial-gradient(ellipse 50% 40% at 85% 70%, hsl(280 85% 60% / 0.12), transparent 70%)",
+          }}
+        />
+        <div className="container mx-auto px-4 relative">
+          <div className="text-center mb-12 relative">
+            <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-40 bg-primary/15 blur-[90px] rounded-full" />
+            <h2 className="relative font-heading text-3xl md:text-4xl font-bold">
               {language === "RU" ? "Наши" : "Our"} <span className="text-primary">{language === "RU" ? "услуги" : "Services"}</span>
             </h2>
-            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+            <p className="relative text-muted-foreground mt-4 max-w-2xl mx-auto">
               {language === "RU" 
                 ? "Выберите нужный тип персонала для вашего мероприятия. Мы быстро сформируем команду под ваши требования."
                 : "Choose the type of staff you need for your event. We will quickly form a team according to your requirements."}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {services.map((service) => (
               <ServiceCard key={service.to} {...service} />
             ))}
