@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Menu, X, Globe } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import AlexCloudLogo from "./AlexCloudLogo";
 
 const Header = () => {
   const location = useLocation();
@@ -20,14 +21,8 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <span className="font-heading text-xl md:text-2xl font-black tracking-tight leading-tight">
-              <span className="text-foreground">EVENT</span>
-              <span className="text-primary">WAVE</span>
-              <span className="block text-[10px] md:text-xs font-medium text-muted-foreground tracking-normal">
-                {language === "RU" ? "Персонал для мероприятий" : "Event Staffing"}
-              </span>
-            </span>
+          <Link to="/" className="flex items-center" aria-label="ALEX CLOUD">
+            <AlexCloudLogo size="md" />
           </Link>
 
           {/* Desktop Navigation */}
