@@ -184,7 +184,9 @@ const Index = () => {
       </section>
 
       {/* Why Us Preview */}
-      <section className="py-20">
+      <section className="relative py-20 overflow-hidden border-t border-accent/20">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent" />
+        <div className="pointer-events-none absolute -top-32 right-1/4 w-[500px] h-64 bg-accent/15 blur-[120px] rounded-full" />
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
