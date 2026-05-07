@@ -42,7 +42,7 @@
     --burgundy-deep: 351 60% 18%;
     --beige: 33 35% 65%;
     --beige-soft: 36 30% 78%;
-    --gradient-hero: linear-gradient(180deg, hsl(0 0% 5%) 0%, hsl(351 50% 12%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(33 40% 75%) 0%, hsl(351 55% 45%) 100%);
     --gradient-card: linear-gradient(180deg, hsl(0 0% 9%) 0%, hsl(0 0% 6%) 100%);
     --shadow-glow: 0 0 60px hsl(351 60% 30% / 0.35);
     --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.6);
