@@ -102,8 +102,8 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        {/* Background Image */}
+      <section className="relative min-h-[92vh] flex items-center overflow-hidden">
+        {/* Background Image + neon glow */}
         <div className="absolute inset-0 z-0">
           <img 
             src={heroWave} 
@@ -112,15 +112,17 @@ const Index = () => {
             height={1080}
             fetchPriority="high"
             decoding="async"
-            className="w-full h-full object-cover opacity-40"
+            className="w-full h-full object-cover opacity-30 mix-blend-screen"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50" />
+          <div className="absolute top-1/4 right-[10%] w-[500px] h-[500px] rounded-full bg-primary/30 blur-[120px] animate-pulse-glow" />
+          <div className="absolute bottom-1/4 left-[5%] w-[400px] h-[400px] rounded-full bg-accent/25 blur-[120px]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/60" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-2xl">
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black leading-tight animate-slide-up">
+          <div className="max-w-3xl">
+            <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-black leading-[0.95] animate-slide-up text-glow">
               {language === "RU" ? "Надёжный персонал" : "Reliable Staff"}
               <br />
               <span className="text-gradient">{language === "RU" ? "на ваши мероприятия" : "for Your Events"}</span>
