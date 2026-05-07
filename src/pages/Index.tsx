@@ -109,8 +109,14 @@ const Index = () => {
           backgroundPosition: "center right",
         }}
       >
-        {/* Subtle dark overlay so left text stays readable */}
-        <div className="absolute inset-0 z-0 bg-gradient-to-r from-background/70 via-background/30 to-transparent" />
+        {/* Dark left-side gradient for text readability */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            background:
+              "linear-gradient(to right, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.45) 45%, rgba(0,0,0,0.1) 75%, transparent 100%)",
+          }}
+        />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
@@ -145,20 +151,31 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-card/50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold">
+      <section className="relative py-20 bg-card/50 overflow-hidden border-t border-primary/20">
+        {/* Top neon glow continuing from hero */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent" />
+        <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[80%] h-80 bg-primary/20 blur-[120px] rounded-full" />
+        {/* Ambient radial glow behind cards */}
+        <div className="pointer-events-none absolute inset-0 opacity-60"
+          style={{
+            background:
+              "radial-gradient(ellipse 60% 40% at 20% 30%, hsl(322 100% 56% / 0.12), transparent 70%), radial-gradient(ellipse 50% 40% at 85% 70%, hsl(280 85% 60% / 0.12), transparent 70%)",
+          }}
+        />
+        <div className="container mx-auto px-4 relative">
+          <div className="text-center mb-12 relative">
+            <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-40 bg-primary/15 blur-[90px] rounded-full" />
+            <h2 className="relative font-heading text-3xl md:text-4xl font-bold">
               {language === "RU" ? "Наши" : "Our"} <span className="text-primary">{language === "RU" ? "услуги" : "Services"}</span>
             </h2>
-            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+            <p className="relative text-muted-foreground mt-4 max-w-2xl mx-auto">
               {language === "RU" 
                 ? "Выберите нужный тип персонала для вашего мероприятия. Мы быстро сформируем команду под ваши требования."
                 : "Choose the type of staff you need for your event. We will quickly form a team according to your requirements."}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {services.map((service) => (
               <ServiceCard key={service.to} {...service} />
             ))}
@@ -167,7 +184,9 @@ const Index = () => {
       </section>
 
       {/* Why Us Preview */}
-      <section className="py-20">
+      <section className="relative py-20 overflow-hidden border-t border-accent/20">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent" />
+        <div className="pointer-events-none absolute -top-32 right-1/4 w-[500px] h-64 bg-accent/15 blur-[120px] rounded-full" />
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -210,7 +229,9 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10">
+      <section className="relative py-20 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border-t border-primary/20 overflow-hidden">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent" />
+        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-64 bg-primary/15 blur-[120px] rounded-full" />
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
             {language === "RU" ? "Готовы начать сотрудничество?" : "Ready to Start Cooperating?"}
