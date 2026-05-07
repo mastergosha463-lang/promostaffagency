@@ -123,7 +123,8 @@ const Index = () => {
             <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-black leading-[0.95] animate-slide-up text-white">
               {language === "RU" ? "Надёжный персонал" : "Reliable Staff"}
               <br />
-              <span className="text-gradient">{language === "RU" ? "на ваши мероприятия" : "for Your Events"}</span>
+              <span className="text-primary">{language === "RU" ? "на ваши " : "for Your "}</span>
+              <span className="text-white">{language === "RU" ? "мероприятия" : "Events"}</span>
             </h1>
             
             <p className="text-lg md:text-xl text-muted-foreground mt-6 max-w-xl animate-slide-up" style={{ animationDelay: "0.1s" }}>
