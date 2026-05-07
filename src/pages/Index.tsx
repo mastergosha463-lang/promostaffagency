@@ -229,7 +229,9 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10">
+      <section className="relative py-20 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border-t border-primary/20 overflow-hidden">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent" />
+        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-64 bg-primary/15 blur-[120px] rounded-full" />
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
             {language === "RU" ? "Готовы начать сотрудничество?" : "Ready to Start Cooperating?"}
