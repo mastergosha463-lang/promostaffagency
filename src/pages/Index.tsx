@@ -22,8 +22,8 @@ const Index = () => {
   useSEO({
     title:
       language === "RU"
-        ? "EVENTWAVE — Надёжный персонал для мероприятий в Москве"
-        : "EVENTWAVE — Reliable event staff in Moscow",
+        ? "ALEX CLOUD — Надёжный персонал для мероприятий в Москве"
+        : "ALEX CLOUD — Reliable event staff in Moscow",
     description:
       language === "RU"
         ? "Подбор персонала для мероприятий в Москве: хелперы, хостес, промоутеры, монтажники. Команды до 40 человек за 24 часа."
@@ -107,7 +107,7 @@ const Index = () => {
         <div className="absolute inset-0 z-0">
           <img 
             src={heroWave} 
-            alt="EVENTWAVE"
+            alt="ALEX CLOUD"
             width={1920}
             height={1080}
             fetchPriority="high"
@@ -178,7 +178,7 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6">
-                {language === "RU" ? "Почему выбирают" : "Why Choose"} <span className="text-primary">EVENTWAVE</span>
+                {language === "RU" ? "Почему выбирают" : "Why Choose"} <span className="text-primary">ALEX CLOUD</span>
                 <span className="block text-lg font-normal text-muted-foreground mt-1">
                   {language === "RU" ? "Агентство по подбору персонала для мероприятий" : "Event staffing agency"}
                 </span>
