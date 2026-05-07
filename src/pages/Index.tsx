@@ -107,17 +107,15 @@ const Index = () => {
         <div className="absolute inset-0 z-0">
           <img 
             src={heroWave} 
-            alt="CLOUDSTAFF"
+            alt="CLOUDSTAFF neon cloud"
             width={1920}
             height={1080}
             fetchPriority="high"
             decoding="async"
-            className="w-full h-full object-cover opacity-30 mix-blend-screen"
+            className="absolute right-0 top-1/2 -translate-y-1/2 h-[110%] w-auto max-w-none object-contain opacity-90 pointer-events-none"
           />
-          <div className="absolute top-1/4 right-[10%] w-[500px] h-[500px] rounded-full bg-primary/30 blur-[120px] animate-pulse-glow" />
-          <div className="absolute bottom-1/4 left-[5%] w-[400px] h-[400px] rounded-full bg-accent/25 blur-[120px]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
