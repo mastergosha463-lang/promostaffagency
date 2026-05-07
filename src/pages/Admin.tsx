@@ -54,8 +54,8 @@ const Admin = () => {
       <header className="border-b border-border bg-card">
         <div className="container mx-auto px-4 flex items-center justify-between h-14">
           <h1 className="font-heading font-bold">
-            <span className="text-foreground">EVENT</span>
-            <span className="text-primary">WAVE</span>
+            <span className="text-primary">CLOUD</span>
+            <span className="text-foreground">STAFF</span>
             <span className="text-muted-foreground text-sm ml-2">Admin</span>
           </h1>
           <Button variant="ghost" size="sm" onClick={handleLogout}>
