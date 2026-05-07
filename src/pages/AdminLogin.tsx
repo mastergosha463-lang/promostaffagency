@@ -45,8 +45,8 @@ const AdminLogin = () => {
     <div className="min-h-screen flex items-center justify-center bg-background px-4">
       <div className="w-full max-w-sm p-6 rounded-xl bg-card border border-border">
         <h1 className="font-heading text-2xl font-bold text-center mb-6">
-          <span className="text-foreground">EVENT</span>
-          <span className="text-primary">WAVE</span>
+          <span className="text-primary">CLOUD</span>
+          <span className="text-foreground">STAFF</span>
           <span className="block text-sm font-normal text-muted-foreground mt-1">Админ-панель</span>
         </h1>
         <form onSubmit={handleLogin} className="space-y-4">
