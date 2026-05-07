@@ -15,7 +15,7 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        // ALEX CLOUD custom variants
+        // CLOUDSTAFF custom variants
         hero: "bg-primary text-primary-foreground font-heading tracking-[0.15em] uppercase border border-primary/40 hover:bg-primary/90 hover:shadow-[0_0_40px_hsl(351_60%_30%/0.5)] transition-all",
         service: "bg-card border border-border text-foreground hover:border-accent hover:bg-secondary transition-all duration-300",
         nav: "text-foreground/70 hover:text-accent font-body font-medium tracking-[0.15em] uppercase text-xs bg-transparent",

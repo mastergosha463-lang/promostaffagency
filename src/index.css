@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    /* ALEX CLOUD — deep black + burgundy + beige */
+    /* CLOUDSTAFF — deep black + burgundy + beige */
     --background: 0 0% 5%;
     --foreground: 36 30% 90%;
 
@@ -37,7 +37,7 @@
 
     --radius: 0.25rem;
 
-    /* Custom ALEX CLOUD tokens */
+    /* Custom CLOUDSTAFF tokens */
     --burgundy: 351 55% 27%;
     --burgundy-deep: 351 60% 18%;
     --beige: 33 35% 65%;

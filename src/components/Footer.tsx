@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Brand */}
           <div className="text-center md:text-left">
-            <Link to="/" className="inline-block" aria-label="ALEX CLOUD">
+            <Link to="/" className="inline-block" aria-label="CLOUDSTAFF">
               <AlexCloudLogo size="lg" />
               <span className="block text-xs font-medium text-muted-foreground tracking-[0.3em] uppercase mt-2">
                 {language === "RU" ? "Персонал для мероприятий" : "Event Staffing"}
@@ -29,7 +29,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} ALEX CLOUD. {language === "RU" ? "Все права защищены." : "All rights reserved."}
+          © {new Date().getFullYear()} CLOUDSTAFF. {language === "RU" ? "Все права защищены." : "All rights reserved."}
         </div>
       </div>
     </footer>
