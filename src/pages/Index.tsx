@@ -102,25 +102,19 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative min-h-[92vh] flex items-center overflow-hidden">
-        {/* Background Image + neon glow */}
-        <div className="absolute inset-0 z-0">
-          <img 
-            src={heroWave} 
-            alt="CLOUDSTAFF neon cloud"
-            width={1920}
-            height={1080}
-            fetchPriority="high"
-            decoding="async"
-            className="absolute right-0 top-1/2 -translate-y-1/2 h-[110%] w-auto max-w-none object-contain opacity-90 pointer-events-none"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
-        </div>
+      <section
+        className="relative min-h-[92vh] flex items-center overflow-hidden bg-no-repeat bg-cover"
+        style={{
+          backgroundImage: `url(${heroWave})`,
+          backgroundPosition: "center right",
+        }}
+      >
+        {/* Subtle dark overlay so left text stays readable */}
+        <div className="absolute inset-0 z-0 bg-gradient-to-r from-background/70 via-background/30 to-transparent" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
-            <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-black leading-[0.95] animate-slide-up text-glow">
+            <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-black leading-[0.95] animate-slide-up text-white">
               {language === "RU" ? "Надёжный персонал" : "Reliable Staff"}
               <br />
               <span className="text-gradient">{language === "RU" ? "на ваши мероприятия" : "for Your Events"}</span>
