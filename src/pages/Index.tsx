@@ -109,8 +109,14 @@ const Index = () => {
           backgroundPosition: "center right",
         }}
       >
-        {/* Subtle dark overlay so left text stays readable */}
-        <div className="absolute inset-0 z-0 bg-gradient-to-r from-background/70 via-background/30 to-transparent" />
+        {/* Dark left-side gradient for text readability */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            background:
+              "linear-gradient(to right, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.45) 45%, rgba(0,0,0,0.1) 75%, transparent 100%)",
+          }}
+        />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
