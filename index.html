@@ -32,12 +32,46 @@
           clearAppCaches();
         }
 
+        // Pre-boot error buffer — drained by errorReporter once the bundle loads.
+        window.__errorBuffer = window.__errorBuffer || [];
+        var bufferPush = function (entry) {
+          try { window.__errorBuffer.push(entry); } catch (e) {}
+        };
+
+        window.addEventListener("unhandledrejection", function (event) {
+          var reason = event && event.reason;
+          bufferPush({
+            kind: "unhandled_rejection",
+            message: typeof reason === "string" ? reason : (reason && reason.message) || "Unhandled rejection",
+            stack: reason && reason.stack ? reason.stack : null
+          });
+        });
+
         window.addEventListener(
           "error",
           (event) => {
             const target = event.target;
             const tagName = target && target.tagName;
             const isCriticalAsset = tagName === "SCRIPT" || tagName === "LINK";
+
+            if (isCriticalAsset) {
+              bufferPush({
+                kind: "asset_error",
+                message: "Failed to load " + tagName + " (pre-boot)",
+                source: (target.src || target.href || ""),
+                extra: { tag: tagName, phase: "pre-boot" }
+              });
+            } else if (event && event.message) {
+              bufferPush({
+                kind: "runtime_error",
+                message: event.message,
+                source: event.filename || null,
+                lineno: event.lineno || null,
+                colno: event.colno || null,
+                stack: event.error && event.error.stack ? event.error.stack : null,
+                extra: { phase: "pre-boot" }
+              });
+            }
 
             if (!isCriticalAsset || sessionStorage.getItem(reloadKey) === "done") return;
 
