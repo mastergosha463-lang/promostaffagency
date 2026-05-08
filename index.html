@@ -74,8 +74,51 @@
   <meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f1e618a6-31d4-4e19-9a8e-0506f3ec2af1/id-preview-a1736c77--3d5cd562-f8f8-4e98-9ca9-4075a77240cc.lovable.app-1778171814446.png">
 </head>
 
-  <body>
+  <body style="background:#000;color:#fff;margin:0;font-family:Inter,system-ui,sans-serif;">
     <div id="root"></div>
+    <div id="boot-fallback" style="position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#000;color:#fff;text-align:center;padding:24px;z-index:0;">
+      <div style="width:48px;height:48px;border:3px solid rgba(255,255,255,0.15);border-top-color:#ff1f9c;border-radius:50%;animation:cs-spin 1s linear infinite;"></div>
+      <p style="margin-top:20px;font-size:15px;opacity:0.8;">Загружаем CLOUDSTAFF…</p>
+      <p id="boot-hint" style="margin-top:8px;font-size:13px;opacity:0;transition:opacity .3s;max-width:320px;line-height:1.4;">
+        Если страница не загрузилась — нажмите кнопку ниже, чтобы сбросить кэш.
+      </p>
+      <button id="boot-reload" style="margin-top:16px;opacity:0;transition:opacity .3s;background:#ff1f9c;color:#fff;border:none;padding:12px 22px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;">
+        Обновить и сбросить кэш
+      </button>
+      <noscript>
+        <p style="margin-top:24px;color:#ff1f9c;">Включите JavaScript в браузере, чтобы открыть сайт.</p>
+      </noscript>
+    </div>
+    <style>@keyframes cs-spin{to{transform:rotate(360deg)}}</style>
+    <script>
+      (function () {
+        var hint = document.getElementById('boot-hint');
+        var btn = document.getElementById('boot-reload');
+        var shown = false;
+        var timer = setTimeout(function () {
+          if (shown) return;
+          shown = true;
+          if (hint) hint.style.opacity = '1';
+          if (btn) btn.style.opacity = '1';
+        }, 6000);
+        if (btn) btn.addEventListener('click', function () {
+          try {
+            localStorage.clear();
+            sessionStorage.clear();
+            if ('caches' in window) caches.keys().then(function (k) { k.forEach(function (n) { caches.delete(n); }); });
+            if ('serviceWorker' in navigator) navigator.serviceWorker.getRegistrations().then(function (r) { r.forEach(function (x) { x.unregister(); }); });
+          } catch (e) {}
+          var u = new URL(location.href);
+          u.searchParams.set('cache_bust', Date.now().toString());
+          location.replace(u.toString());
+        });
+        window.__hideBootFallback = function () {
+          clearTimeout(timer);
+          var el = document.getElementById('boot-fallback');
+          if (el) el.parentNode.removeChild(el);
+        };
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
