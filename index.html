@@ -6,6 +6,52 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
+    <script>
+      (() => {
+        const resetKey = "cloudstaff-cache-reset-v2";
+        const reloadKey = "cloudstaff-cache-reloaded";
+
+        const clearAppCaches = async () => {
+          try {
+            if ("serviceWorker" in navigator) {
+              const registrations = await navigator.serviceWorker.getRegistrations();
+              await Promise.all(registrations.map((registration) => registration.unregister()));
+            }
+
+            if ("caches" in window) {
+              const cacheNames = await caches.keys();
+              await Promise.all(cacheNames.map((cacheName) => caches.delete(cacheName)));
+            }
+          } catch (error) {
+            console.warn("Cache reset skipped", error);
+          }
+        };
+
+        if (localStorage.getItem(resetKey) !== "done") {
+          localStorage.setItem(resetKey, "done");
+          clearAppCaches();
+        }
+
+        window.addEventListener(
+          "error",
+          (event) => {
+            const target = event.target;
+            const tagName = target && target.tagName;
+            const isCriticalAsset = tagName === "SCRIPT" || tagName === "LINK";
+
+            if (!isCriticalAsset || sessionStorage.getItem(reloadKey) === "done") return;
+
+            sessionStorage.setItem(reloadKey, "done");
+            clearAppCaches().finally(() => {
+              const url = new URL(window.location.href);
+              url.searchParams.set("cache_bust", Date.now().toString());
+              window.location.replace(url.toString());
+            });
+          },
+          true
+        );
+      })();
+    </script>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <title>ALEX CLOUD — Надёжный персонал для мероприятий в Москве</title>
     <meta name="description" content="ALEX CLOUD — подбор персонала для мероприятий в Москве: хелперы, хостес, промоутеры, монтажники. Команды до 40 человек за 24 часа.">
