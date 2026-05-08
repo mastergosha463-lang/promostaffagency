@@ -3,10 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { LogOut, FileText, BarChart3, Settings } from "lucide-react";
+import { LogOut, FileText, BarChart3, Settings, AlertTriangle } from "lucide-react";
 import AdminLeads from "@/components/admin/AdminLeads";
 import AdminAnalytics from "@/components/admin/AdminAnalytics";
 import AdminServices from "@/components/admin/AdminServices";
+import AdminErrors from "@/components/admin/AdminErrors";
 
 const Admin = () => {
   const [loading, setLoading] = useState(true);
@@ -80,6 +81,10 @@ const Admin = () => {
               <Settings className="w-4 h-4" />
               Услуги
             </TabsTrigger>
+            <TabsTrigger value="errors" className="gap-2">
+              <AlertTriangle className="w-4 h-4" />
+              Ошибки
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent value="leads">
@@ -90,6 +95,9 @@ const Admin = () => {
           </TabsContent>
           <TabsContent value="services">
             <AdminServices />
+          </TabsContent>
+          <TabsContent value="errors">
+            <AdminErrors />
           </TabsContent>
         </Tabs>
       </div>
