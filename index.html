@@ -236,11 +236,7 @@
           u.searchParams.set('cache_bust', Date.now().toString());
           location.replace(u.toString());
         });
-        window.__hideBootFallback = function () {
-          clearTimeout(timer);
-          var el = document.getElementById('boot-fallback');
-          if (el) el.parentNode.removeChild(el);
-        };
+      })();
       })();
     </script>
     <script type="module" src="/src/main.tsx"></script>
