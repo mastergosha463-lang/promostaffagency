@@ -21,16 +21,18 @@ const AppRoutes = () => {
   usePageTracking();
 
   return (
-    <Routes>
-      <Route path="/" element={<Index />} />
-      <Route path="/contacts" element={<Contacts />} />
-      <Route path="/why-us" element={<WhyUs />} />
-      <Route path="/staff/:type" element={<StaffPage />} />
-      <Route path="/admin-login" element={<AdminLogin />} />
-      <Route path="/admin" element={<Admin />} />
-      {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <Suspense fallback={null}>
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/contacts" element={<Contacts />} />
+        <Route path="/why-us" element={<WhyUs />} />
+        <Route path="/staff/:type" element={<StaffPage />} />
+        <Route path="/admin-login" element={<AdminLogin />} />
+        <Route path="/admin" element={<Admin />} />
+        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Suspense>
   );
 };
 
