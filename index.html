@@ -33,10 +33,73 @@
         }
 
         // Pre-boot error buffer — drained by errorReporter once the bundle loads.
+        // ALSO sent directly via sendBeacon so we capture failures even when bundle never executes.
         window.__errorBuffer = window.__errorBuffer || [];
+        var SB_URL = "https://gtacfqxkcmexpmzwbkue.supabase.co";
+        var SB_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd0YWNmcXhrY21leHBtendia3VlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc3OTAwMzYsImV4cCI6MjA4MzM2NjAzNn0.DqTMgURvRDX5hQSC_YMSDaNePDKQLwnDoAdz6TMavsE";
+        var sentCount = 0;
+        var directSend = function (entry) {
+          if (sentCount >= 10) return;
+          sentCount++;
+          try {
+            var payload = JSON.stringify({
+              kind: entry.kind || "preboot",
+              message: (entry.message || "").slice(0, 500),
+              source: entry.source || null,
+              lineno: entry.lineno || null,
+              colno: entry.colno || null,
+              stack: (entry.stack || "").slice(0, 2000) || null,
+              page_path: location.pathname + location.search,
+              user_agent: navigator.userAgent,
+              url: location.href,
+              extra: Object.assign({ phase: "pre-boot", online: navigator.onLine }, entry.extra || {})
+            });
+            var url = SB_URL + "/rest/v1/client_errors";
+            var headers = { type: "application/json" };
+            var blob = new Blob([payload], headers);
+            // sendBeacon doesn't allow custom headers, so use fetch with keepalive as primary
+            if (window.fetch) {
+              fetch(url, {
+                method: "POST",
+                keepalive: true,
+                headers: {
+                  "Content-Type": "application/json",
+                  "apikey": SB_KEY,
+                  "Authorization": "Bearer " + SB_KEY,
+                  "Prefer": "return=minimal"
+                },
+                body: payload
+              }).catch(function () {});
+            }
+          } catch (e) {}
+        };
         var bufferPush = function (entry) {
           try { window.__errorBuffer.push(entry); } catch (e) {}
+          directSend(entry);
         };
+
+        // Boot timeout detector — if React never mounts, report it.
+        setTimeout(function () {
+          var root = document.getElementById("root");
+          if (root && root.childElementCount === 0) {
+            directSend({
+              kind: "boot_timeout",
+              message: "React did not mount within 12s",
+              extra: {
+                online: navigator.onLine,
+                cookieEnabled: navigator.cookieEnabled,
+                connection: (navigator.connection && {
+                  effectiveType: navigator.connection.effectiveType,
+                  downlink: navigator.connection.downlink,
+                  rtt: navigator.connection.rtt,
+                  saveData: navigator.connection.saveData
+                }) || null,
+                viewport: window.innerWidth + "x" + window.innerHeight,
+                bundleScripts: Array.prototype.slice.call(document.scripts).map(function (s) { return s.src; }).filter(Boolean)
+              }
+            });
+          }
+        }, 12000);
 
         window.addEventListener("unhandledrejection", function (event) {
           var reason = event && event.reason;
