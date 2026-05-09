@@ -5,13 +5,15 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { usePageTracking } from "@/hooks/usePageTracking";
+import { lazy, Suspense } from "react";
 import Index from "./pages/Index";
-import Contacts from "./pages/Contacts";
-import WhyUs from "./pages/WhyUs";
-import StaffPage from "./pages/StaffPage";
-import AdminLogin from "./pages/AdminLogin";
-import Admin from "./pages/Admin";
-import NotFound from "./pages/NotFound";
+
+const Contacts = lazy(() => import("./pages/Contacts"));
+const WhyUs = lazy(() => import("./pages/WhyUs"));
+const StaffPage = lazy(() => import("./pages/StaffPage"));
+const AdminLogin = lazy(() => import("./pages/AdminLogin"));
+const Admin = lazy(() => import("./pages/Admin"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
