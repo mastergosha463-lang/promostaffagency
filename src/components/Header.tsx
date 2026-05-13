@@ -21,7 +21,7 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center" aria-label="CLOUDSTAFF">
+          <Link to="/" className="flex items-center" aria-label="EVENTWAVE">
             <AlexCloudLogo size="md" />
           </Link>
 
