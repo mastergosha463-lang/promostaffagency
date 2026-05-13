@@ -11,6 +11,7 @@ import WhyUs from "./pages/WhyUs";
 import StaffPage from "./pages/StaffPage";
 import AdminLogin from "./pages/AdminLogin";
 import Admin from "./pages/Admin";
+import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const AppRoutes = () => {
       <Route path="/staff/:type" element={<StaffPage />} />
       <Route path="/admin-login" element={<AdminLogin />} />
       <Route path="/admin" element={<Admin />} />
+      <Route path="/privacy" element={<Privacy />} />
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />
     </Routes>
