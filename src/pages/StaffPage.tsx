@@ -176,8 +176,8 @@ const StaffPage = () => {
 
   useSEO({
     title: staff
-      ? `${staff.title} на мероприятие в Москве — CLOUDSTAFF`
-      : "Страница не найдена — CLOUDSTAFF",
+      ? `${staff.title} на мероприятие в Москве — EVENTWAVE`
+      : "Страница не найдена — EVENTWAVE",
     description: staff
       ? `${staff.title}: ${staff.description.slice(0, 140)}`
       : undefined,

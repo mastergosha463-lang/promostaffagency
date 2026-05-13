@@ -14,8 +14,8 @@ const Contacts = () => {
   useSEO({
     title:
       language === "RU"
-        ? "Сотрудничество — CLOUDSTAFF | Заявка на персонал для мероприятий"
-        : "Cooperation — CLOUDSTAFF | Event staff request",
+        ? "Сотрудничество — EVENTWAVE | Заявка на персонал для мероприятий"
+        : "Cooperation — EVENTWAVE | Event staff request",
     description:
       language === "RU"
         ? "Оставьте заявку на подбор персонала для мероприятия в Москве. Ответим в течение часа. Хелперы, хостес, промоутеры, монтажники."
