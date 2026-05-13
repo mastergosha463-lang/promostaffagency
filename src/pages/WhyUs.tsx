@@ -71,7 +71,7 @@ const WhyUs = () => {
     "Мы не просто подбираем людей — мы создаём команды, которые работают как единый организм. Каждый член нашего персонала знает, что от него ожидается, и готов выложиться на полную.",
     "Мы гордимся тем, что за всё время нашей работы не было ни одного случая, когда персонал подвел организатора. Это не случайность — это результат нашего тщательного отбора и постоянного контроля качества."
   ] : [
-    "CLOUDSTAFF was born from practical experience and deep understanding of how events work in Moscow. We know that event organizers often face a challenge: where to find reliable, professional staff who will arrive on time, do quality work and support the atmosphere of the event? This is exactly the problem we solve.",
+    "EVENTWAVE was born from practical experience and deep understanding of how events work in Moscow. We know that event organizers often face a challenge: where to find reliable, professional staff who will arrive on time, do quality work and support the atmosphere of the event? This is exactly the problem we solve.",
     "Our team consists of people who have worked at events themselves and understand all the nuances of this work. We carefully select specialists, verify their experience and reliability, and then offer you only the best.",
     "We don't just select people — we create teams that work as a single organism. Each member of our staff knows what is expected of them and is ready to give their all.",
     "We are proud that throughout our work there has not been a single case when staff let down the organizer. This is not a coincidence — it is the result of our careful selection and constant quality control."
