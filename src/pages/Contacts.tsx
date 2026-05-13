@@ -1,5 +1,4 @@
 import Layout from "@/components/Layout";
-import ContactIcons from "@/components/ContactIcons";
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock, CheckCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -160,16 +159,6 @@ const Contacts = () => {
                   </div>
                 </div>
 
-                {/* Social Links */}
-                <div className="p-6 rounded-xl bg-card border border-border">
-                  <h3 className="font-heading font-bold text-lg mb-4">{language === "RU" ? "Мессенджеры" : "Messengers"}</h3>
-                  <ContactIcons size="lg" />
-                  <p className="text-sm text-muted-foreground mt-4">
-                    {language === "RU"
-                      ? "Напишите в любой мессенджер — ответим в течение 15 минут"
-                      : "Write to any messenger — we will respond within 15 minutes"}
-                  </p>
-                </div>
               </div>
 
               {/* Contact Form */}
