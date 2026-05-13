@@ -95,8 +95,8 @@ const WhyUs = () => {
             </h1>
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-lg">
               {language === "RU" 
-                ? "CLOUDSTAFF — надёжность в каждой детали события"
-                : "CLOUDSTAFF — reliability in every detail of your event"}
+                ? "EVENTWAVE — надёжность в каждой детали события"
+                : "EVENTWAVE — reliability in every detail of your event"}
             </p>
           </div>
 
