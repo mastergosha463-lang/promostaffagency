@@ -14,6 +14,51 @@ export type Database = {
   }
   public: {
     Tables: {
+      client_errors: {
+        Row: {
+          colno: number | null
+          created_at: string
+          extra: Json | null
+          id: string
+          kind: string
+          lineno: number | null
+          message: string | null
+          page_path: string | null
+          source: string | null
+          stack: string | null
+          url: string | null
+          user_agent: string | null
+        }
+        Insert: {
+          colno?: number | null
+          created_at?: string
+          extra?: Json | null
+          id?: string
+          kind: string
+          lineno?: number | null
+          message?: string | null
+          page_path?: string | null
+          source?: string | null
+          stack?: string | null
+          url?: string | null
+          user_agent?: string | null
+        }
+        Update: {
+          colno?: number | null
+          created_at?: string
+          extra?: Json | null
+          id?: string
+          kind?: string
+          lineno?: number | null
+          message?: string | null
+          page_path?: string | null
+          source?: string | null
+          stack?: string | null
+          url?: string | null
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
       leads: {
         Row: {
           created_at: string
