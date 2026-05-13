@@ -252,6 +252,33 @@ const Contacts = () => {
                       />
                     </div>
 
+                    <div className="flex items-start gap-3">
+                      <Checkbox
+                        id="privacy"
+                        checked={formData.privacy_accepted}
+                        onCheckedChange={(checked) => handleChange("privacy_accepted", checked === true)}
+                        className={errors.privacy_accepted ? "border-destructive" : ""}
+                      />
+                      <label htmlFor="privacy" className="text-sm text-muted-foreground leading-tight cursor-pointer">
+                        {language === "RU" ? (
+                          <>
+                            Я согласен с{" "}
+                            <Link to="/privacy" className="text-primary hover:underline">
+                              политикой конфиденциальности
+                            </Link>
+                          </>
+                        ) : (
+                          <>
+                            I agree to the{" "}
+                            <Link to="/privacy" className="text-primary hover:underline">
+                              privacy policy
+                            </Link>
+                          </>
+                        )}
+                      </label>
+                    </div>
+                    {errors.privacy_accepted && <p className="text-sm text-destructive -mt-2">{errors.privacy_accepted}</p>}
+
                     <Button variant="hero" size="lg" className="w-full" disabled={isSubmitting}>
                       {isSubmitting
                         ? (language === "RU" ? "Отправка..." : "Sending...")
