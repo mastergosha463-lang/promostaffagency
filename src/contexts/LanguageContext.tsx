@@ -42,7 +42,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Why Us page
     "whyUs.title": "Почему выбирают",
-    "whyUs.titleHighlight": "CLOUDSTAFF",
+    "whyUs.titleHighlight": "EVENTWAVE",
     "whyUs.subtitle": "Мы не просто предоставляем персонал — мы создаём команды, которые делают ваше мероприятие незабываемым",
     "whyUs.stats.events": "Более 100",
     "whyUs.stats.eventsLabel": "Мероприятий",
@@ -129,7 +129,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Why Us page
     "whyUs.title": "Why Choose",
-    "whyUs.titleHighlight": "CLOUDSTAFF",
+    "whyUs.titleHighlight": "EVENTWAVE",
     "whyUs.subtitle": "We don't just provide staff — we create teams that make your event unforgettable",
     "whyUs.stats.events": "100+",
     "whyUs.stats.eventsLabel": "Events",
