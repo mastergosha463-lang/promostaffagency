@@ -1,22 +1,21 @@
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link, useParams } from "react-router-dom";
-import {
-  ArrowRight,
+import { 
+  ArrowRight, 
   ArrowLeft,
-  Users,
-  Megaphone,
-  Sparkles,
-  Wrench,
-  Palette,
-  UtensilsCrossed,
-  PartyPopper,
+  Users, 
+  Megaphone, 
+  Sparkles, 
+  Wrench, 
+  Palette, 
+  UtensilsCrossed, 
+  PartyPopper, 
   ClipboardCheck,
   Camera,
   Music,
   CheckCircle2
 } from "lucide-react";
-import { useSEO } from "@/hooks/useSEO";
 
 const staffData: Record<string, {
   title: string;
@@ -50,19 +49,6 @@ const staffData: Record<string, {
       "Презентация продукции"
     ],
     events: ["Выставки", "Торговые центры", "Городские события", "Презентации", "Промо-акции"]
-  },
-  "promo-model": {
-    title: "Промо-модель",
-    description: "Профессиональные модели для работы на выставках, презентациях и съёмках. Представительная внешность, уверенное поведение и опыт работы на подиуме и стендах.",
-    icon: Camera,
-    duties: [
-      "Работа на выставочных стендах",
-      "Демонстрация продукции",
-      "Участие в фото- и видеосъёмках",
-      "Работа на подиуме",
-      "Представление бренда на мероприятиях"
-    ],
-    events: ["Выставки", "Презентации", "Фотосессии", "Показы", "Корпоративы"]
   },
   hostess: {
     title: "Хостес",
@@ -103,18 +89,18 @@ const staffData: Record<string, {
     ],
     events: ["Свадьбы", "Корпоративы", "Презентации", "Фотозоны", "Тематические вечеринки"]
   },
-  couriers: {
-    title: "Курьеры",
-    description: "Оперативная доставка материалов, реквизита и оборудования на мероприятия. Быстрые и ответственные курьеры, которые доставят всё точно в срок.",
-    icon: Users,
+  catering: {
+    title: "Кейтеринг-персонал",
+    description: "Профессиональные официанты и бармены для безупречного обслуживания гостей на вашем мероприятии.",
+    icon: UtensilsCrossed,
     duties: [
-      "Доставка материалов и реквизита на площадку",
-      "Перевозка документов и полиграфии",
-      "Срочная курьерская доставка по городу",
-      "Транспортировка оборудования между локациями",
-      "Доставка подарков и сувенирной продукции"
+      "Обслуживание банкетов",
+      "Работа на фуршетах",
+      "Барное обслуживание",
+      "Сервировка столов",
+      "Уборка посуды"
     ],
-    events: ["Выставки", "Конференции", "Корпоративы", "Презентации", "Фестивали"]
+    events: ["Банкеты", "Фуршеты", "Корпоративы", "Свадьбы", "Частные вечеринки"]
   },
   animators: {
     title: "Аниматоры",
@@ -173,16 +159,6 @@ const staffData: Record<string, {
 const StaffPage = () => {
   const { type } = useParams<{ type: string }>();
   const staff = type ? staffData[type] : null;
-
-  useSEO({
-    title: staff
-      ? `${staff.title} на мероприятие в Москве — CLOUDSTAFF`
-      : "Страница не найдена — CLOUDSTAFF",
-    description: staff
-      ? `${staff.title}: ${staff.description.slice(0, 140)}`
-      : undefined,
-    canonicalPath: type ? `/staff/${type}` : undefined,
-  });
 
   if (!staff) {
     return (

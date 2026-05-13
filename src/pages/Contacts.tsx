@@ -1,27 +1,14 @@
 import Layout from "@/components/Layout";
 import ContactIcons from "@/components/ContactIcons";
 import { Button } from "@/components/ui/button";
-import { MapPin, Clock, CheckCircle } from "lucide-react";
+import { Phone, MapPin, Clock, CheckCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import { z } from "zod";
-import { useSEO } from "@/hooks/useSEO";
 
 const Contacts = () => {
   const { language } = useLanguage();
-  useSEO({
-    title:
-      language === "RU"
-        ? "Сотрудничество — CLOUDSTAFF | Заявка на персонал для мероприятий"
-        : "Cooperation — CLOUDSTAFF | Event staff request",
-    description:
-      language === "RU"
-        ? "Оставьте заявку на подбор персонала для мероприятия в Москве. Ответим в течение часа. Хелперы, хостес, промоутеры, монтажники."
-        : "Leave a request for event staff in Moscow. We respond within an hour. Helpers, hostesses, promoters, installers.",
-    canonicalPath: "/contacts",
-  });
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -32,50 +19,19 @@ const Contacts = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const buildSchema = () =>
-    z.object({
-      name: z
-        .string()
-        .trim()
-        .min(2, language === "RU" ? "Минимум 2 символа" : "At least 2 characters")
-        .max(100, language === "RU" ? "Максимум 100 символов" : "Max 100 characters"),
-      phone: z
-        .string()
-        .trim()
-        .min(6, language === "RU" ? "Введите телефон" : "Enter your phone")
-        .max(32, language === "RU" ? "Слишком длинный номер" : "Phone too long")
-        .regex(
-          /^[+\d\s\-()]{6,32}$/,
-          language === "RU"
-            ? "Допустимы цифры, +, пробелы, дефисы и скобки"
-            : "Only digits, +, spaces, dashes and parentheses"
-        ),
-      event_type: z
-        .string()
-        .trim()
-        .min(2, language === "RU" ? "Укажите тип мероприятия" : "Enter event type")
-        .max(100, language === "RU" ? "Максимум 100 символов" : "Max 100 characters"),
-      message: z
-        .string()
-        .trim()
-        .max(1000, language === "RU" ? "Максимум 1000 символов" : "Max 1000 characters")
-        .optional()
-        .or(z.literal("")),
-    });
-
   const validate = () => {
-    const result = buildSchema().safeParse(formData);
-    if (!result.success) {
-      const newErrors: Record<string, string> = {};
-      for (const issue of result.error.issues) {
-        const key = issue.path[0] as string;
-        if (key && !newErrors[key]) newErrors[key] = issue.message;
-      }
-      setErrors(newErrors);
-      return false;
+    const newErrors: Record<string, string> = {};
+    if (!formData.name.trim()) {
+      newErrors.name = language === "RU" ? "Введите имя" : "Enter your name";
     }
-    setErrors({});
-    return true;
+    if (!formData.phone.trim()) {
+      newErrors.phone = language === "RU" ? "Введите телефон" : "Enter your phone";
+    }
+    if (!formData.event_type.trim()) {
+      newErrors.event_type = language === "RU" ? "Укажите тип мероприятия" : "Enter event type";
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -121,12 +77,12 @@ const Contacts = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h1 className="font-heading text-4xl md:text-5xl font-bold">
-              <span className="text-primary">{language === "RU" ? "Сотрудничество" : "Cooperation"}</span>
+              <span className="text-primary">{language === "RU" ? "Контакты" : "Contacts"}</span>
             </h1>
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
               {language === "RU"
-                ? "Оставьте заявку"
-                : "Leave a request"}
+                ? "Свяжитесь с нами любым удобным способом. Мы ответим в течение часа."
+                : "Contact us in any convenient way. We will respond within an hour."}
             </p>
           </div>
 
@@ -135,9 +91,22 @@ const Contacts = () => {
               {/* Contact Info */}
               <div className="space-y-8">
                 <div className="p-6 rounded-xl bg-card border border-border">
-                  
+                  <h3 className="font-heading font-bold text-xl mb-6">{language === "RU" ? "Руслан" : "Ruslan"}</h3>
 
                   <div className="space-y-4">
+                    <a
+                      href="tel:+79257420436"
+                      className="flex items-center gap-4 p-4 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors group"
+                    >
+                      <div className="p-3 rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                        <Phone className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <p className="text-sm text-muted-foreground">{language === "RU" ? "Телефон" : "Phone"}</p>
+                        <p className="font-semibold text-foreground">+7 (925) 742-04-36</p>
+                      </div>
+                    </a>
+
                     <div className="flex items-center gap-4 p-4 rounded-lg bg-secondary">
                       <div className="p-3 rounded-full bg-primary/10 text-primary">
                         <MapPin className="w-5 h-5" />

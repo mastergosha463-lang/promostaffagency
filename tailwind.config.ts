@@ -14,8 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["Bebas Neue", "Impact", "sans-serif"],
-        display: ["Space Grotesk", "sans-serif"],
+        heading: ["Montserrat", "sans-serif"],
         body: ["Inter", "sans-serif"],
       },
       colors: {

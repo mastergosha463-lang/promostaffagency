@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Menu, X, Globe } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import AlexCloudLogo from "./AlexCloudLogo";
 
 const Header = () => {
   const location = useLocation();
@@ -13,20 +12,24 @@ const Header = () => {
   const navLinks = [
     { to: "/", label: t("nav.home") },
     { to: "/why-us", label: t("nav.whyUs") },
+    { to: "/clients", label: t("nav.clients") },
     { to: "/contacts", label: t("nav.contacts") },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-xl border-b border-primary/20 shadow-[0_1px_30px_hsl(322_100%_56%/0.15)]">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center" aria-label="CLOUDSTAFF">
-            <AlexCloudLogo size="md" />
+          <Link to="/" className="flex items-center gap-2">
+            <span className="font-heading text-xl md:text-2xl font-black tracking-tight">
+              <span className="text-foreground">EVENT</span>
+              <span className="text-primary">WAVE</span>
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link key={link.to} to={link.to}>
                 <Button
@@ -40,7 +43,7 @@ const Header = () => {
           </nav>
 
           {/* Language Toggle & CTA Button */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-3">
             <button
               onClick={() => setLanguage(language === "RU" ? "ENG" : "RU")}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border/50 bg-secondary/50 hover:bg-secondary transition-colors text-sm font-medium"
@@ -57,7 +60,7 @@ const Header = () => {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="lg:hidden text-foreground p-2"
+            className="md:hidden text-foreground p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -66,7 +69,7 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-border animate-fade-in">
+          <div className="md:hidden py-4 border-t border-border animate-fade-in">
             <nav className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <Link

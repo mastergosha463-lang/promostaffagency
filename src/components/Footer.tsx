@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import ContactIcons from "./ContactIcons";
 import { useLanguage } from "@/contexts/LanguageContext";
-import AlexCloudLogo from "./AlexCloudLogo";
 
 const Footer = () => {
   const { language } = useLanguage();
@@ -12,24 +11,31 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Brand */}
           <div className="text-center md:text-left">
-            <Link to="/" className="inline-block" aria-label="CLOUDSTAFF">
-              <AlexCloudLogo size="lg" />
-              <span className="block text-xs font-medium text-muted-foreground tracking-[0.3em] uppercase mt-2">
-                {language === "RU" ? "Персонал для мероприятий" : "Event Staffing"}
+            <Link to="/" className="inline-block">
+              <span className="font-heading text-4xl font-black tracking-tight">
+                <span className="text-foreground">EVENT</span>
+                <span className="text-primary">WAVE</span>
               </span>
             </Link>
           </div>
 
           {/* Contact */}
           <div className="text-center md:text-right">
-            <div className="flex justify-center md:justify-end">
+            <p className="text-muted-foreground text-sm mb-2">{language === "RU" ? "Руслан" : "Ruslan"}</p>
+            <a 
+              href="tel:+79257420436" 
+              className="text-primary font-medium hover:underline"
+            >
+              +7 (925) 742-04-36
+            </a>
+            <div className="mt-4 flex justify-center md:justify-end">
               <ContactIcons />
             </div>
           </div>
         </div>
 
         <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} CLOUDSTAFF. {language === "RU" ? "Все права защищены." : "All rights reserved."}
+          © {new Date().getFullYear()} EVENTWAVE. {language === "RU" ? "Все права защищены." : "All rights reserved."}
         </div>
       </div>
     </footer>

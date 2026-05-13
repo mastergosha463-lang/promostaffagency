@@ -4,37 +4,14 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
-import { usePageTracking } from "@/hooks/usePageTracking";
-import { lazy, Suspense } from "react";
 import Index from "./pages/Index";
-
-const Contacts = lazy(() => import("./pages/Contacts"));
-const WhyUs = lazy(() => import("./pages/WhyUs"));
-const StaffPage = lazy(() => import("./pages/StaffPage"));
-const AdminLogin = lazy(() => import("./pages/AdminLogin"));
-const Admin = lazy(() => import("./pages/Admin"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+import Contacts from "./pages/Contacts";
+import WhyUs from "./pages/WhyUs";
+import Clients from "./pages/Clients";
+import StaffPage from "./pages/StaffPage";
+import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
-
-const AppRoutes = () => {
-  usePageTracking();
-
-  return (
-    <Suspense fallback={null}>
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/contacts" element={<Contacts />} />
-        <Route path="/why-us" element={<WhyUs />} />
-        <Route path="/staff/:type" element={<StaffPage />} />
-        <Route path="/admin-login" element={<AdminLogin />} />
-        <Route path="/admin" element={<Admin />} />
-        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Suspense>
-  );
-};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -43,7 +20,15 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <AppRoutes />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/contacts" element={<Contacts />} />
+            <Route path="/why-us" element={<WhyUs />} />
+            <Route path="/clients" element={<Clients />} />
+            <Route path="/staff/:type" element={<StaffPage />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </BrowserRouter>
       </TooltipProvider>
     </LanguageProvider>
