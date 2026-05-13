@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import ContactIcons from "./ContactIcons";
 import { useLanguage } from "@/contexts/LanguageContext";
 import AlexCloudLogo from "./AlexCloudLogo";
 
@@ -20,12 +19,6 @@ const Footer = () => {
             </Link>
           </div>
 
-          {/* Contact */}
-          <div className="text-center md:text-right">
-            <div className="flex justify-center md:justify-end">
-              <ContactIcons />
-            </div>
-          </div>
         </div>
 
         <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
