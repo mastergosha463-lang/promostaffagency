@@ -21,14 +21,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div className="text-center md:text-right">
-            <p className="text-muted-foreground text-sm mb-2">{language === "RU" ? "Руслан" : "Ruslan"}</p>
-            <a 
-              href="tel:+79257420436" 
-              className="text-primary font-medium hover:underline"
-            >
-              +7 (925) 742-04-36
-            </a>
-            <div className="mt-4 flex justify-center md:justify-end">
+            <div className="flex justify-center md:justify-end">
               <ContactIcons />
             </div>
           </div>
