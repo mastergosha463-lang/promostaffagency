@@ -13,8 +13,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Header
     "nav.home": "Главная",
     "nav.whyUs": "Почему мы",
-    "nav.clients": "Клиенты",
-    "nav.contacts": "Контакты",
+    "nav.contacts": "Сотрудничество",
     "nav.cta": "Оставить заявку",
 
     // Hero
@@ -43,7 +42,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Why Us page
     "whyUs.title": "Почему выбирают",
-    "whyUs.titleHighlight": "EVENTWAVE",
+    "whyUs.titleHighlight": "CLOUDSTAFF",
     "whyUs.subtitle": "Мы не просто предоставляем персонал — мы создаём команды, которые делают ваше мероприятие незабываемым",
     "whyUs.stats.events": "Более 100",
     "whyUs.stats.eventsLabel": "Мероприятий",
@@ -101,8 +100,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Header
     "nav.home": "Home",
     "nav.whyUs": "Why Us",
-    "nav.clients": "Clients",
-    "nav.contacts": "Contacts",
+    "nav.contacts": "Cooperation",
     "nav.cta": "Get a Quote",
 
     // Hero
@@ -131,7 +129,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Why Us page
     "whyUs.title": "Why Choose",
-    "whyUs.titleHighlight": "EVENTWAVE",
+    "whyUs.titleHighlight": "CLOUDSTAFF",
     "whyUs.subtitle": "We don't just provide staff — we create teams that make your event unforgettable",
     "whyUs.stats.events": "100+",
     "whyUs.stats.eventsLabel": "Events",

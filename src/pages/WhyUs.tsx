@@ -11,9 +11,21 @@ import {
   ArrowRight
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useSEO } from "@/hooks/useSEO";
 
 const WhyUs = () => {
   const { language, t } = useLanguage();
+  useSEO({
+    title:
+      language === "RU"
+        ? "Почему CLOUDSTAFF — агентство персонала для мероприятий в Москве"
+        : "Why CLOUDSTAFF — event staffing agency in Moscow",
+    description:
+      language === "RU"
+        ? "Опытная команда, 99% доходимость, мобилизация до 40 человек за 24 часа. CLOUDSTAFF — надёжность в каждой детали события."
+        : "Experienced team, 99% arrival rate, up to 40 staff mobilised in 24 hours. CLOUDSTAFF — reliability in every detail.",
+    canonicalPath: "/why-us",
+  });
 
   const benefits = [
     {
@@ -54,12 +66,12 @@ const WhyUs = () => {
   ];
 
   const aboutTexts = language === "RU" ? [
-    "EVENTWAVE родилась из практического опыта и глубокого понимания того, как работают события в Москве. Мы знаем, что организатор мероприятия часто сталкивается с вызовом: где найти надёжный, профессиональный персонал, который придёт вовремя, выполнит работу качественно и поддержит атмосферу события? Именно эту проблему мы решаем.",
+    "CLOUDSTAFF родилась из практического опыта и глубокого понимания того, как работают события в Москве. Мы знаем, что организатор мероприятия часто сталкивается с вызовом: где найти надёжный, профессиональный персонал, который придёт вовремя, выполнит работу качественно и поддержит атмосферу события? Именно эту проблему мы решаем.",
     "Наша команда состоит из людей, которые сами работали на событиях и понимают все нюансы этой работы. Мы тщательно отбираем специалистов, проверяем их опыт и надёжность, а затем предлагаем вам только лучших.",
     "Мы не просто подбираем людей — мы создаём команды, которые работают как единый организм. Каждый член нашего персонала знает, что от него ожидается, и готов выложиться на полную.",
     "Мы гордимся тем, что за всё время нашей работы не было ни одного случая, когда персонал подвел организатора. Это не случайность — это результат нашего тщательного отбора и постоянного контроля качества."
   ] : [
-    "EVENTWAVE was born from practical experience and deep understanding of how events work in Moscow. We know that event organizers often face a challenge: where to find reliable, professional staff who will arrive on time, do quality work and support the atmosphere of the event? This is exactly the problem we solve.",
+    "CLOUDSTAFF was born from practical experience and deep understanding of how events work in Moscow. We know that event organizers often face a challenge: where to find reliable, professional staff who will arrive on time, do quality work and support the atmosphere of the event? This is exactly the problem we solve.",
     "Our team consists of people who have worked at events themselves and understand all the nuances of this work. We carefully select specialists, verify their experience and reliability, and then offer you only the best.",
     "We don't just select people — we create teams that work as a single organism. Each member of our staff knows what is expected of them and is ready to give their all.",
     "We are proud that throughout our work there has not been a single case when staff let down the organizer. This is not a coincidence — it is the result of our careful selection and constant quality control."
@@ -83,8 +95,8 @@ const WhyUs = () => {
             </h1>
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-lg">
               {language === "RU" 
-                ? "EVENTWAVE — надёжность в каждой детали события"
-                : "EVENTWAVE — reliability in every detail of your event"}
+                ? "CLOUDSTAFF — надёжность в каждой детали события"
+                : "CLOUDSTAFF — reliability in every detail of your event"}
             </p>
           </div>
 
