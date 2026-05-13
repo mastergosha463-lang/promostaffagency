@@ -37,7 +37,7 @@ const ClientLogo = ({ name, logo, url, isActive = true, cropBottom = false }: Cl
       <div className={`w-full h-full flex items-center justify-center p-8 ${cropBottom ? "overflow-hidden" : ""}`}>
         <img
           src={logo}
-          alt={`${name} - ${language === "RU" ? "клиент CLOUDSTAFF" : "CLOUDSTAFF client"}`}
+          alt={`${name} - ${language === "RU" ? "клиент EVENTWAVE" : "EVENTWAVE client"}`}
           className={`max-w-full object-contain transition-all duration-500 ${
             isActive ? "grayscale-0" : "grayscale"
           } ${cropBottom ? "max-h-[140%] -mb-12" : "max-h-full"}`}
