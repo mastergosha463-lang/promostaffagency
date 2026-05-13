@@ -141,8 +141,8 @@ const Clients = () => {
             
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               {language === "RU" 
-                ? "Компании, которые доверяют CLOUDSTAFF организацию персонала для своих мероприятий"
-                : "Companies that trust CLOUDSTAFF to organize staff for their events"}
+                ? "Компании, которые доверяют EVENTWAVE организацию персонала для своих мероприятий"
+                : "Companies that trust EVENTWAVE to organize staff for their events"}
             </p>
           </div>
 

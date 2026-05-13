@@ -18,12 +18,12 @@ const WhyUs = () => {
   useSEO({
     title:
       language === "RU"
-        ? "Почему CLOUDSTAFF — агентство персонала для мероприятий в Москве"
-        : "Why CLOUDSTAFF — event staffing agency in Moscow",
+        ? "Почему EVENTWAVE — агентство персонала для мероприятий в Москве"
+        : "Why EVENTWAVE — event staffing agency in Moscow",
     description:
       language === "RU"
-        ? "Опытная команда, 99% доходимость, мобилизация до 40 человек за 24 часа. CLOUDSTAFF — надёжность в каждой детали события."
-        : "Experienced team, 99% arrival rate, up to 40 staff mobilised in 24 hours. CLOUDSTAFF — reliability in every detail.",
+        ? "Опытная команда, 99% доходимость, мобилизация до 40 человек за 24 часа. EVENTWAVE — надёжность в каждой детали события."
+        : "Experienced team, 99% arrival rate, up to 40 staff mobilised in 24 hours. EVENTWAVE — reliability in every detail.",
     canonicalPath: "/why-us",
   });
 
