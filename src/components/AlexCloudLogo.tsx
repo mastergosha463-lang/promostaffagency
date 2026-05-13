@@ -10,8 +10,8 @@ const AlexCloudLogo = ({ className = "", size = "md" }: LogoProps) => {
   return (
     <div className={`flex items-center ${className}`}>
       <span className={`font-heading font-normal tracking-[0.25em] leading-none ${textSize}`}>
-        <span className="text-primary">CLOUD</span>
-        <span className="text-foreground">STAFF</span>
+        <span className="text-primary">EVENT</span>
+        <span className="text-foreground">WAVE</span>
       </span>
     </div>
   );
