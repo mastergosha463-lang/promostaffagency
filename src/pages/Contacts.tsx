@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { MapPin, Clock, CheckCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState } from "react";
@@ -7,6 +8,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { z } from "zod";
 import { useSEO } from "@/hooks/useSEO";
+import { Link } from "react-router-dom";
 
 const Contacts = () => {
   const { language } = useLanguage();
@@ -26,6 +28,7 @@ const Contacts = () => {
     phone: "",
     event_type: "",
     message: "",
+    privacy_accepted: false,
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -60,6 +63,14 @@ const Contacts = () => {
         .max(1000, language === "RU" ? "Максимум 1000 символов" : "Max 1000 characters")
         .optional()
         .or(z.literal("")),
+      privacy_accepted: z.literal(true, {
+        errorMap: () => ({
+          message:
+            language === "RU"
+              ? "Необходимо согласие с политикой конфиденциальности"
+              : "Consent to the privacy policy is required",
+        }),
+      }),
     });
 
   const validate = () => {
@@ -90,7 +101,7 @@ const Contacts = () => {
       if (error) throw error;
 
       setIsSubmitted(true);
-      setFormData({ name: "", phone: "", event_type: "", message: "" });
+      setFormData({ name: "", phone: "", event_type: "", message: "", privacy_accepted: false });
     } catch (err) {
       console.error("Submit error:", err);
       toast.error(
@@ -103,7 +114,7 @@ const Contacts = () => {
     }
   };
 
-  const handleChange = (field: string, value: string) => {
+  const handleChange = (field: string, value: string | boolean) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
     if (errors[field]) {
       setErrors((prev) => {
