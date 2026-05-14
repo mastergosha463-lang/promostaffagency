@@ -142,7 +142,7 @@ const Index = () => {
               </Link>
               <Link to="/why-us">
                 <Button variant="outline" size="xl">
-                  {language === "RU" ? "Узнать больше" : "Learn More"}
+                  {language === "RU" ? "О нашем агентстве" : "About Our Agency"}
                 </Button>
               </Link>
             </div>
