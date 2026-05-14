@@ -174,9 +174,9 @@ const Contacts = () => {
 
               {/* Contact Form */}
               <div className="p-6 rounded-xl bg-card border border-border">
-                <h3 className="font-heading font-bold text-xl mb-6">
+                <h2 className="font-heading font-bold text-xl mb-6">
                   {language === "RU" ? "Оставить заявку" : "Leave a Request"}
-                </h3>
+                </h2>
 
                 {isSubmitted ? (
                   <div className="flex flex-col items-center justify-center py-12 text-center space-y-4">
