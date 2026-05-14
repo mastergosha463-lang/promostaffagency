@@ -4,13 +4,15 @@ interface SEOOptions {
   title: string;
   description?: string;
   canonicalPath?: string;
+  noindex?: boolean;
 }
 
 /**
  * Lightweight SEO hook: updates <title>, <meta name="description">,
- * <meta property="og:title">, <meta property="og:description"> and <link rel="canonical">.
+ * <meta property="og:title">, <meta property="og:description">,
+ * <link rel="canonical"> and optionally <meta name="robots">.
  */
-export const useSEO = ({ title, description, canonicalPath }: SEOOptions) => {
+export const useSEO = ({ title, description, canonicalPath, noindex }: SEOOptions) => {
   useEffect(() => {
     if (title) document.title = title;
 
@@ -28,9 +30,11 @@ export const useSEO = ({ title, description, canonicalPath }: SEOOptions) => {
     if (description) {
       setMeta('meta[name="description"]', "content", description);
       setMeta('meta[property="og:description"]', "content", description);
+      setMeta('meta[name="twitter:description"]', "content", description);
     }
     if (title) {
       setMeta('meta[property="og:title"]', "content", title);
+      setMeta('meta[name="twitter:title"]', "content", title);
     }
 
     if (canonicalPath) {
@@ -42,6 +46,17 @@ export const useSEO = ({ title, description, canonicalPath }: SEOOptions) => {
         document.head.appendChild(link);
       }
       link.href = href;
+      setMeta('meta[property="og:url"]', "content", href);
     }
-  }, [title, description, canonicalPath]);
+
+    // Robots: only set when explicitly requested; cleanup on unmount so
+    // navigating away from a noindex page doesn't leak the directive.
+    if (noindex) {
+      setMeta('meta[name="robots"]', "content", "noindex, nofollow");
+      return () => {
+        const robots = document.head.querySelector('meta[name="robots"]');
+        if (robots) robots.remove();
+      };
+    }
+  }, [title, description, canonicalPath, noindex]);
 };
