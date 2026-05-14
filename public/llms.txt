@@ -1,0 +1,24 @@
+# EVENTWAVE
+
+> EVENTWAVE — агентство по подбору надёжного персонала для мероприятий в Москве: хелперы, хостес, промоутеры, монтажники, промо-модели и курьеры. Команды до 40 человек за 24 часа, работа 24/7.
+
+EVENTWAVE specialises in event staffing in Moscow. We mobilise vetted teams of helpers, hostesses, promoters, installers, promo models and couriers — including last-minute requests — and guarantee punctuality and on-site quality control.
+
+## Pages
+
+- [Главная / Home](/): Обзор услуг агентства EVENTWAVE и быстрый запрос команды на мероприятие.
+- [Почему мы / Why Us](/why-us): Преимущества, опыт, статистика и принципы работы EVENTWAVE.
+- [Сотрудничество / Cooperation](/contacts): Форма заявки на персонал, контакты и режим работы.
+
+## Services
+
+- [Хелперы / Helpers](/staff/helpers): Универсальные помощники для любых задач на мероприятии.
+- [Монтажники / Installers](/staff/installers): Сборка и разборка конструкций и оборудования.
+- [Хостес / Hostesses](/staff/hostess): Встреча гостей, регистрация и сопровождение.
+- [Промо-персонал / Promo Staff](/staff/promo): Промоутеры для раздачи материалов и активаций.
+- [Промо-модель / Promo Model](/staff/promo-model): Модель на подиум, стенд или съёмку.
+- [Курьеры / Couriers](/staff/couriers): Оперативная доставка материалов и реквизита.
+
+## Optional
+
+- [Политика конфиденциальности / Privacy Policy](/privacy): Как EVENTWAVE обрабатывает персональные данные.
