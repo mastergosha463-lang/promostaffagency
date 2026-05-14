@@ -16,71 +16,71 @@
     --popover: 270 30% 6%;
     --popover-foreground: 300 20% 96%;
 
-    /* Neon pink primary */
-    --primary: 322 100% 56%;
+    /* Neon orange primary */
+    --primary: 22 100% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 270 25% 10%;
-    --secondary-foreground: 300 20% 96%;
+    --secondary: 25 25% 10%;
+    --secondary-foreground: 30 20% 96%;
 
-    --muted: 270 20% 12%;
-    --muted-foreground: 280 15% 70%;
+    --muted: 25 20% 12%;
+    --muted-foreground: 30 15% 70%;
 
-    /* Vivid purple accent */
-    --accent: 280 85% 60%;
+    /* Vivid amber accent */
+    --accent: 35 100% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 80% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 280 30% 16%;
-    --input: 280 30% 14%;
-    --ring: 322 100% 56%;
+    --border: 25 30% 16%;
+    --input: 25 30% 14%;
+    --ring: 22 100% 55%;
 
     --radius: 0.75rem;
 
     /* Custom CLOUDSTAFF tokens */
-    --neon-pink: 322 100% 56%;
-    --neon-purple: 280 85% 60%;
-    --neon-magenta: 300 100% 50%;
-    --gradient-hero: linear-gradient(135deg, hsl(322 100% 60%) 0%, hsl(280 90% 55%) 50%, hsl(260 80% 50%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(280 30% 8%) 0%, hsl(270 35% 4%) 100%);
-    --gradient-glow: radial-gradient(circle at center, hsl(322 100% 56% / 0.25), transparent 70%);
-    --shadow-glow: 0 0 60px hsl(322 100% 56% / 0.5);
-    --shadow-glow-purple: 0 0 80px hsl(280 90% 55% / 0.4);
-    --shadow-card: 0 8px 32px hsl(280 90% 55% / 0.15);
-    --shadow-neon: 0 0 20px hsl(322 100% 56% / 0.6), 0 0 40px hsl(280 85% 60% / 0.3);
+    --neon-pink: 22 100% 55%;
+    --neon-purple: 35 100% 55%;
+    --neon-magenta: 18 100% 50%;
+    --gradient-hero: linear-gradient(135deg, hsl(22 100% 60%) 0%, hsl(30 100% 55%) 50%, hsl(40 100% 50%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(25 30% 8%) 0%, hsl(20 35% 4%) 100%);
+    --gradient-glow: radial-gradient(circle at center, hsl(22 100% 55% / 0.25), transparent 70%);
+    --shadow-glow: 0 0 60px hsl(22 100% 55% / 0.5);
+    --shadow-glow-purple: 0 0 80px hsl(35 100% 55% / 0.4);
+    --shadow-card: 0 8px 32px hsl(30 100% 55% / 0.15);
+    --shadow-neon: 0 0 20px hsl(22 100% 55% / 0.6), 0 0 40px hsl(35 100% 55% / 0.3);
 
     --sidebar-background: 0 0% 2%;
-    --sidebar-foreground: 300 20% 96%;
-    --sidebar-primary: 322 100% 56%;
+    --sidebar-foreground: 30 20% 96%;
+    --sidebar-primary: 22 100% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 270 25% 10%;
-    --sidebar-accent-foreground: 300 20% 96%;
-    --sidebar-border: 280 30% 16%;
-    --sidebar-ring: 322 100% 56%;
+    --sidebar-accent: 25 25% 10%;
+    --sidebar-accent-foreground: 30 20% 96%;
+    --sidebar-border: 25 30% 16%;
+    --sidebar-ring: 22 100% 55%;
   }
 
   .dark {
     --background: 0 0% 0%;
-    --foreground: 300 20% 96%;
-    --card: 270 30% 6%;
-    --card-foreground: 300 20% 96%;
-    --popover: 270 30% 6%;
-    --popover-foreground: 300 20% 96%;
-    --primary: 322 100% 56%;
+    --foreground: 30 20% 96%;
+    --card: 25 30% 6%;
+    --card-foreground: 30 20% 96%;
+    --popover: 25 30% 6%;
+    --popover-foreground: 30 20% 96%;
+    --primary: 22 100% 55%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 270 25% 10%;
-    --secondary-foreground: 300 20% 96%;
-    --muted: 270 20% 12%;
-    --muted-foreground: 280 15% 70%;
-    --accent: 280 85% 60%;
+    --secondary: 25 25% 10%;
+    --secondary-foreground: 30 20% 96%;
+    --muted: 25 20% 12%;
+    --muted-foreground: 30 15% 70%;
+    --accent: 35 100% 55%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 80% 55%;
     --destructive-foreground: 0 0% 100%;
-    --border: 280 30% 16%;
-    --input: 280 30% 14%;
-    --ring: 322 100% 56%;
+    --border: 25 30% 16%;
+    --input: 25 30% 14%;
+    --ring: 22 100% 55%;
   }
 }
 
