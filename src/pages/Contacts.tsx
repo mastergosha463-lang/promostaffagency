@@ -181,9 +181,9 @@ const Contacts = () => {
                 {isSubmitted ? (
                   <div className="flex flex-col items-center justify-center py-12 text-center space-y-4">
                     <CheckCircle className="w-16 h-16 text-primary" />
-                    <h4 className="font-heading font-bold text-lg text-foreground">
+                    <h3 className="font-heading font-bold text-lg text-foreground">
                       {language === "RU" ? "Спасибо!" : "Thank you!"}
-                    </h4>
+                    </h3>
                     <p className="text-muted-foreground">
                       {language === "RU"
                         ? "Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время."
