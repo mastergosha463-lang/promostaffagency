@@ -7,8 +7,15 @@ import { LogOut, FileText, BarChart3, Settings } from "lucide-react";
 import AdminLeads from "@/components/admin/AdminLeads";
 import AdminAnalytics from "@/components/admin/AdminAnalytics";
 import AdminServices from "@/components/admin/AdminServices";
+import { useSEO } from "@/hooks/useSEO";
 
 const Admin = () => {
+  useSEO({
+    title: "Панель администратора — EVENTWAVE",
+    description: "Внутренняя административная панель EVENTWAVE: управление заявками, аналитикой и услугами.",
+    canonicalPath: "/admin",
+    noindex: true,
+  });
   const [loading, setLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
   const navigate = useNavigate();

@@ -3,8 +3,15 @@ import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { useSEO } from "@/hooks/useSEO";
 
 const AdminLogin = () => {
+  useSEO({
+    title: "Вход для администратора — EVENTWAVE",
+    description: "Страница входа в административную панель EVENTWAVE для управления заявками и контентом сайта.",
+    canonicalPath: "/admin-login",
+    noindex: true,
+  });
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);

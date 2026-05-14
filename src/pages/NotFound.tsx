@@ -1,8 +1,15 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { useSEO } from "@/hooks/useSEO";
 
 const NotFound = () => {
   const location = useLocation();
+  useSEO({
+    title: "Страница не найдена (404) — EVENTWAVE",
+    description: "К сожалению, запрашиваемая страница не найдена. Вернитесь на главную EVENTWAVE — агентство персонала для мероприятий в Москве.",
+    canonicalPath: location.pathname,
+    noindex: true,
+  });
 
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
