@@ -121,7 +121,7 @@ const WhyUs = () => {
                 <div className="p-3 rounded-lg bg-primary/10 text-primary w-fit mb-4">
                   <benefit.icon className="w-6 h-6" />
                 </div>
-                <h3 className="font-heading font-bold text-xl mb-2">{benefit.title}</h3>
+                <h2 className="font-heading font-bold text-xl mb-2">{benefit.title}</h2>
                 <p className="text-muted-foreground">{benefit.description}</p>
               </div>
             ))}
