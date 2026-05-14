@@ -200,11 +200,14 @@ const Contacts = () => {
                 ) : (
                   <form className="space-y-4" onSubmit={handleSubmit}>
                     <div>
-                      <label className="text-sm text-muted-foreground mb-2 block">
+                      <label htmlFor="contact-name" className="text-sm text-muted-foreground mb-2 block">
                         {language === "RU" ? "Ваше имя" : "Your Name"} *
                       </label>
                       <input
+                        id="contact-name"
+                        name="name"
                         type="text"
+                        autoComplete="name"
                         value={formData.name}
                         onChange={(e) => handleChange("name", e.target.value)}
                         className={`w-full px-4 py-3 rounded-lg bg-secondary border ${errors.name ? "border-destructive" : "border-border"} focus:border-primary focus:outline-none transition-colors text-foreground`}
@@ -213,11 +216,14 @@ const Contacts = () => {
                     </div>
 
                     <div>
-                      <label className="text-sm text-muted-foreground mb-2 block">
+                      <label htmlFor="contact-phone" className="text-sm text-muted-foreground mb-2 block">
                         {language === "RU" ? "Телефон" : "Phone"} *
                       </label>
                       <input
+                        id="contact-phone"
+                        name="phone"
                         type="tel"
+                        autoComplete="tel"
                         value={formData.phone}
                         onChange={(e) => handleChange("phone", e.target.value)}
                         placeholder="+7 (___) ___-__-__"
@@ -227,10 +233,12 @@ const Contacts = () => {
                     </div>
 
                     <div>
-                      <label className="text-sm text-muted-foreground mb-2 block">
+                      <label htmlFor="contact-event-type" className="text-sm text-muted-foreground mb-2 block">
                         {language === "RU" ? "Тип мероприятия" : "Event Type"} *
                       </label>
                       <input
+                        id="contact-event-type"
+                        name="event_type"
                         type="text"
                         value={formData.event_type}
                         onChange={(e) => handleChange("event_type", e.target.value)}
@@ -240,10 +248,12 @@ const Contacts = () => {
                     </div>
 
                     <div>
-                      <label className="text-sm text-muted-foreground mb-2 block">
+                      <label htmlFor="contact-message" className="text-sm text-muted-foreground mb-2 block">
                         {language === "RU" ? "Сообщение" : "Message"}
                       </label>
                       <textarea
+                        id="contact-message"
+                        name="message"
                         value={formData.message}
                         onChange={(e) => handleChange("message", e.target.value)}
                         className="w-full px-4 py-3 rounded-lg bg-secondary border border-border focus:border-primary focus:outline-none transition-colors resize-none text-foreground"
