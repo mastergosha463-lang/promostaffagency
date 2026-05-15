@@ -216,8 +216,8 @@ const Index = () => {
               <div className="absolute inset-0 rounded-2xl bg-primary/30 blur-[80px]" />
               <div className="relative aspect-square rounded-2xl card-gradient border border-primary/40 p-8 flex items-center justify-center glow-neon">
                 <div className="text-center">
-                  <p className="text-6xl md:text-8xl font-heading font-black text-gradient text-glow">
-                    {language === "RU" ? "100+" : "100+"}
+                  <p className="text-5xl sm:text-6xl md:text-8xl font-heading font-black text-gradient text-glow">
+                    {language === "RU" ? "Более 100" : "100"}
                   </p>
                   <p className="text-xl text-muted-foreground mt-2 tracking-wider uppercase">
                     {language === "RU" ? "успешных мероприятий" : "successful events"}
