@@ -3,16 +3,7 @@ import Layout from "@/components/Layout";
 import ServiceCard from "@/components/ServiceCard";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { 
-  Users, 
-  Megaphone, 
-  Sparkles, 
-  Wrench, 
-   
-  Camera,
-  CheckCircle2,
-  ArrowRight
-} from "lucide-react";
+import { Users, Megaphone, Sparkles, Wrench, Camera, CheckCircle2, ArrowRight } from "lucide-react";
 import heroWave from "@/assets/hero-wave.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useSEO } from "@/hooks/useSEO";
@@ -47,57 +38,71 @@ const Index = () => {
   const services = [
     {
       title: language === "RU" ? "Хелперы" : "Helpers",
-      description: language === "RU" ? "Универсальные помощники для любых задач на мероприятии" : "Versatile assistants for any event tasks",
+      description:
+        language === "RU"
+          ? "Универсальные помощники для любых задач на мероприятии"
+          : "Versatile assistants for any event tasks",
       icon: Users,
-      to: "/staff/helpers"
+      to: "/staff/helpers",
     },
     {
       title: language === "RU" ? "Монтажники" : "Installers",
-      description: language === "RU" ? "Сборка и разборка конструкций, оборудования" : "Assembly and disassembly of structures and equipment",
+      description:
+        language === "RU"
+          ? "Сборка и разборка конструкций, оборудования"
+          : "Assembly and disassembly of structures and equipment",
       icon: Wrench,
-      to: "/staff/installers"
+      to: "/staff/installers",
     },
     {
       title: language === "RU" ? "Хостес" : "Hostesses",
-      description: language === "RU" ? "Встреча гостей, регистрация и сопровождение" : "Guest reception, registration and escort",
+      description:
+        language === "RU" ? "Встреча гостей, регистрация и сопровождение" : "Guest reception, registration and escort",
       icon: Sparkles,
-      to: "/staff/hostess"
+      to: "/staff/hostess",
     },
     {
       title: language === "RU" ? "Промо-персонал" : "Promo Staff",
-      description: language === "RU" ? "Промоутеры для раздачи материалов и привлечения внимания" : "Promoters for distributing materials and attracting attention",
+      description:
+        language === "RU"
+          ? "Промоутеры для раздачи материалов и привлечения внимания"
+          : "Promoters for distributing materials and attracting attention",
       icon: Megaphone,
-      to: "/staff/promo"
+      to: "/staff/promo",
     },
     {
       title: language === "RU" ? "Промо-модель" : "Promo Model",
       description: language === "RU" ? "Модель на подиум, стенд, съемку" : "Model for podium, booth, photo shoots",
       icon: Camera,
-      to: "/staff/promo-model"
+      to: "/staff/promo-model",
     },
     {
       title: language === "RU" ? "Курьеры" : "Couriers",
-      description: language === "RU" ? "Оперативная доставка материалов и реквизита на мероприятия" : "Prompt delivery of materials and props for events",
+      description:
+        language === "RU"
+          ? "Оперативная доставка материалов и реквизита на мероприятия"
+          : "Prompt delivery of materials and props for events",
       icon: Users,
-      to: "/staff/couriers"
+      to: "/staff/couriers",
     },
   ];
 
-  const whyUsPoints = language === "RU" 
-    ? [
-        "Любой формат события",
-        "Быстрая адаптация",
-        "Команды до 40 человек за 24 часа",
-        "Круглосуточная поддержка",
-        "Пунктуальность гарантирована"
-      ]
-    : [
-        "Any event format",
-        "Quick adaptation",
-        "Teams of up to 40 people in 24 hours",
-        "24/7 support",
-        "Punctuality guaranteed"
-      ];
+  const whyUsPoints =
+    language === "RU"
+      ? [
+          "Любой формат события",
+          "Быстрая адаптация",
+          "Команды до 40 человек за 24 часа",
+          "Круглосуточная поддержка",
+          "Пунктуальность гарантирована",
+        ]
+      : [
+          "Any event format",
+          "Quick adaptation",
+          "Teams of up to 40 people in 24 hours",
+          "24/7 support",
+          "Punctuality guaranteed",
+        ];
 
   return (
     <Layout>
@@ -126,9 +131,12 @@ const Index = () => {
               <span className="text-primary">{language === "RU" ? "на ваши " : "for Your "}</span>
               <span className="text-white">{language === "RU" ? "мероприятия" : "Events"}</span>
             </h1>
-            
-            <p className="text-lg md:text-xl text-muted-foreground mt-6 max-w-xl animate-slide-up" style={{ animationDelay: "0.1s" }}>
-              {language === "RU" 
+
+            <p
+              className="text-lg md:text-xl text-muted-foreground mt-6 max-w-xl animate-slide-up"
+              style={{ animationDelay: "0.1s" }}
+            >
+              {language === "RU"
                 ? "Работаем со срочными заявками и формируем команду в кратчайшие сроки. Ваше событие не будет ждать — мы тоже."
                 : "We handle urgent requests and form teams in the shortest time. Your event won't wait — neither will we."}
             </p>
@@ -146,7 +154,6 @@ const Index = () => {
                 </Button>
               </Link>
             </div>
-
           </div>
         </div>
       </section>
@@ -157,7 +164,8 @@ const Index = () => {
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent" />
         <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[80%] h-80 bg-primary/20 blur-[120px] rounded-full" />
         {/* Ambient radial glow behind cards */}
-        <div className="pointer-events-none absolute inset-0 opacity-60"
+        <div
+          className="pointer-events-none absolute inset-0 opacity-60"
           style={{
             background:
               "radial-gradient(ellipse 60% 40% at 20% 30%, hsl(22 100% 55% / 0.12), transparent 70%), radial-gradient(ellipse 50% 40% at 85% 70%, hsl(35 100% 55% / 0.12), transparent 70%)",
@@ -167,10 +175,11 @@ const Index = () => {
           <div className="text-center mb-12 relative">
             <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-40 bg-primary/15 blur-[90px] rounded-full" />
             <h2 className="relative font-heading text-3xl md:text-4xl font-bold">
-              {language === "RU" ? "Наши" : "Our"} <span className="text-primary">{language === "RU" ? "услуги" : "Services"}</span>
+              {language === "RU" ? "Наши" : "Our"}{" "}
+              <span className="text-primary">{language === "RU" ? "услуги" : "Services"}</span>
             </h2>
             <p className="relative text-muted-foreground mt-4 max-w-2xl mx-auto">
-              {language === "RU" 
+              {language === "RU"
                 ? "Выберите нужный тип персонала для вашего мероприятия. Мы быстро сформируем команду под ваши требования."
                 : "Choose the type of staff you need for your event. We will quickly form a team according to your requirements."}
             </p>
@@ -238,7 +247,7 @@ const Index = () => {
             {language === "RU" ? "Готовы начать сотрудничество?" : "Ready to Start Cooperating?"}
           </h2>
           <p className="text-muted-foreground text-lg mb-8 max-w-xl mx-auto">
-            {language === "RU" 
+            {language === "RU"
               ? "Оставьте заявку, и мы свяжемся с вами в течение часа для обсуждения деталей."
               : "Leave a request and we will contact you within an hour to discuss the details."}
           </p>
